@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Itens", "6 - Itens", "{8F5BF199-3B99-43FB-AE60-C8E35A15B7AB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Apresentacao", "1 - Apresentacao", "{A3EDB723-DB71-4801-A008-D7BD1D9B1E90}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Dominio", "2 - Dominio", "{7BF049A1-627B-49A8-96BE-DBE365C52486}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infraestrutura", "3 - Infraestrutura", "{207083A1-86F3-42B0-992F-6F4691119CB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - CrossCutting", "4 - CrossCutting", "{646E3BF2-0827-4692-8900-B1C5B3E889C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Testes", "5 - Testes", "{98D36712-0D66-4917-BAE1-AAF48EC39F84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Api", "src\Cepedi.ProjetoRFID.Api\Cepedi.ProjetoRFID.Api.csproj", "{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Domain", "src\Cepedi.ProjetoRFID.Domain\Cepedi.ProjetoRFID.Domain.csproj", "{E0617142-68B3-4146-BA92-6EF0FE0B0EF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Data", "src\Cepedi.ProjetoRFID.Data\Cepedi.ProjetoRFID.Data.csproj", "{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Shared", "src\Cepedi.ProjetoRFID.Shared\Cepedi.ProjetoRFID.Shared.csproj", "{4D9443C0-3926-4DE9-A0A6-115EAA0074DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Ioc", "src\Cepedi.ProjetoRFID.Ioc\Cepedi.ProjetoRFID.Ioc.csproj", "{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0617142-68B3-4146-BA92-6EF0FE0B0EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0617142-68B3-4146-BA92-6EF0FE0B0EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0617142-68B3-4146-BA92-6EF0FE0B0EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0617142-68B3-4146-BA92-6EF0FE0B0EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D9443C0-3926-4DE9-A0A6-115EAA0074DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D9443C0-3926-4DE9-A0A6-115EAA0074DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D9443C0-3926-4DE9-A0A6-115EAA0074DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D9443C0-3926-4DE9-A0A6-115EAA0074DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B} = {A3EDB723-DB71-4801-A008-D7BD1D9B1E90}
+		{E0617142-68B3-4146-BA92-6EF0FE0B0EF3} = {7BF049A1-627B-49A8-96BE-DBE365C52486}
+		{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A} = {207083A1-86F3-42B0-992F-6F4691119CB6}
+		{4D9443C0-3926-4DE9-A0A6-115EAA0074DC} = {646E3BF2-0827-4692-8900-B1C5B3E889C7}
+		{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B} = {646E3BF2-0827-4692-8900-B1C5B3E889C7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63D311C6-86F4-4E0B-A44D-24AC1D518F2A}
+	EndGlobalSection
+EndGlobal
