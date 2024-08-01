@@ -19,15 +19,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - CrossCutting", "4 - Cro
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Testes", "5 - Testes", "{98D36712-0D66-4917-BAE1-AAF48EC39F84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Api", "src\Cepedi.ProjetoRFID.Api\Cepedi.ProjetoRFID.Api.csproj", "{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepedi.ProjetoRFID.Api", "src\Cepedi.ProjetoRFID.Api\Cepedi.ProjetoRFID.Api.csproj", "{7D8438E3-1D8D-4FAC-A3AC-D10BCF92C82B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Domain", "src\Cepedi.ProjetoRFID.Domain\Cepedi.ProjetoRFID.Domain.csproj", "{E0617142-68B3-4146-BA92-6EF0FE0B0EF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepedi.ProjetoRFID.Domain", "src\Cepedi.ProjetoRFID.Domain\Cepedi.ProjetoRFID.Domain.csproj", "{E0617142-68B3-4146-BA92-6EF0FE0B0EF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Data", "src\Cepedi.ProjetoRFID.Data\Cepedi.ProjetoRFID.Data.csproj", "{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepedi.ProjetoRFID.Data", "src\Cepedi.ProjetoRFID.Data\Cepedi.ProjetoRFID.Data.csproj", "{0B9802D9-1B38-40BF-8FBC-5A4D46D9B08A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Shared", "src\Cepedi.ProjetoRFID.Shared\Cepedi.ProjetoRFID.Shared.csproj", "{4D9443C0-3926-4DE9-A0A6-115EAA0074DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepedi.ProjetoRFID.Shared", "src\Cepedi.ProjetoRFID.Shared\Cepedi.ProjetoRFID.Shared.csproj", "{4D9443C0-3926-4DE9-A0A6-115EAA0074DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cepedi.ProjetoRFID.Ioc", "src\Cepedi.ProjetoRFID.Ioc\Cepedi.ProjetoRFID.Ioc.csproj", "{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cepedi.ProjetoRFID.Ioc", "src\Cepedi.ProjetoRFID.Ioc\Cepedi.ProjetoRFID.Ioc.csproj", "{A845080E-394E-4FB9-AAB5-DE8A54EC2A0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
