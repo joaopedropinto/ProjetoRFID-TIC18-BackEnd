@@ -1,6 +1,3 @@
 ﻿namespace Cepedi.ProjetoRFID.Shared.Responses.Category;
 
-public class DeleteCategoryResponse
-{
-
-}
+public record DeleteCategoryResponse(int Id, int IdProduct, string Name, string Origin, string Color);

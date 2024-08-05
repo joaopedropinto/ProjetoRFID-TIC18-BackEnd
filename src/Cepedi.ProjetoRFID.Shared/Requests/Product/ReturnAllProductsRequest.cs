@@ -1,6 +1,12 @@
-﻿namespace Cepedi.ProjetoRFID.Shared.Requests.Product;
+﻿using Cepedi.ProjetoRFID.Shared.Responses.Product;
+using MediatR;
+using OperationResult;
+using System.Collections.Generic;
 
-public class ReturnAllProductsRequest
+
+namespace Cepedi.ProjetoRFID.Shared.Requests.Product;
+
+public class ReturnAllProductsRequest : IRequest<Result<List<ReturnAllProductsResponse>>>
 {
 
 }

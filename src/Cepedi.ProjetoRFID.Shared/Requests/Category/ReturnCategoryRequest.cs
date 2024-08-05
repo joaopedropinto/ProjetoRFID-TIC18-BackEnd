@@ -1,6 +1,10 @@
-﻿namespace Cepedi.ProjetoRFID.Shared.Requests.Category;
+﻿using Cepedi.ProjetoRFID.Shared.Responses.Category;
+using MediatR;
+using OperationResult;
 
-public class ReturnCategoryRequest
+namespace Cepedi.ProjetoRFID.Shared.Requests.Category;
+
+public class ReturnCategoryRequest : IRequest<Result<ReturnCategoryResponse>>, IValida
 {
-
+    public int Id { get; set; }
 }

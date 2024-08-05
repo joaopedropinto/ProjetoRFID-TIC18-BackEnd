@@ -17,14 +17,25 @@ public class ProductEntity
     public decimal Weight { get; set; }
     public DateTime ManufacDate { get; set; }
     public DateTime DueDate { get; set; }
-    public DateTime PurchaseDate { get; set; }
     public string? UnitMeasurement { get; set; }
     public string? PackingType { get; set; }
     public string? BatchNumber { get; set; }
-    public int SugarLevel { get; set; }
-    public string? Allergens { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; } = 0;
 
+    internal void Update(string name, string description, decimal weight, DateTime manufacDate, DateTime dueDate,
+     string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price)
+    {
+        Name = name;
+        Description = description;
+        Weight = weight;
+        ManufacDate = manufacDate;
+        DueDate = dueDate;
+        UnitMeasurement = unitMeasurement;
+        PackingType = packingType;
+        BatchNumber = batchNumber;
+        Quantity = quantity;
+        Price = price;
+    }
 }
 
