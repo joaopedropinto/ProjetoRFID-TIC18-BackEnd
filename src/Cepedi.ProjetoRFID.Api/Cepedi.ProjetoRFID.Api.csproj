@@ -15,4 +15,9 @@
     <Folder Include="Extension\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Cepedi.ProjetoRFID.Data\Cepedi.ProjetoRFID.Data.csproj" />
+    <ProjectReference Include="..\Cepedi.ProjetoRFID.Domain\Cepedi.ProjetoRFID.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
