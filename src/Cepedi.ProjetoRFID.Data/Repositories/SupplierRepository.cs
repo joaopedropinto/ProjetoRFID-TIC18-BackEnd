@@ -41,6 +41,11 @@ public class SupplierRepository : ISupplierRepository
         return await _context.Set<SupplierEntity>().ToListAsync();
     }
 
+    public async Task<ProductEntity> ReturnProductSupplierAsync(int id)
+    {
+        return await
+            _context.Product.Where(e => e.Id == id).FirstOrDefaultAsync();
+    }
     public async Task<SupplierEntity> DeleteSupplierAsync(int id)
     {
         var supplierEntity = await ReturnSupplierAsync(id);

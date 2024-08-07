@@ -1,6 +1,11 @@
-﻿namespace Cepedi.ProjetoRFID.Shared.Requests.Supplier;
+﻿using Cepedi.ProjetoRFID.Shared.Responses.Supplier;
+using MediatR;
+using OperationResult;
 
-public class ReturnSupplierRequest
+namespace Cepedi.ProjetoRFID.Shared.Requests.Supplier;
+
+
+public class ReturnSupplierRequest : IRequest<Result<ReturnSupplierResponse>>, IValida
 {
-
+    public int Id { get; set; }
 }

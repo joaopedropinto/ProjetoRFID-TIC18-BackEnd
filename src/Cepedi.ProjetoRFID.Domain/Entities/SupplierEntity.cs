@@ -14,5 +14,11 @@ public class SupplierEntity
     public string? Description { get; set; }
     public string? PhoneNumber { get; set; }
 
+    internal void Update(string name, string description, string phoneNumber)
+    {
+        Name = name;
+        Description = description;
+        PhoneNumber = phoneNumber;
+    }
 }
 

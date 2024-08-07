@@ -36,9 +36,15 @@ public class CategoryRepository : ICategoryRepository
             _context.Category.Where(e => e.Id == id).FirstOrDefaultAsync();
     }
 
-    public async Task<List<CategoryEntity>> ReturnAllCategorysAsync()
+    public async Task<List<CategoryEntity>> ReturnAllCategoriesAsync()
     {
         return await _context.Set<CategoryEntity>().ToListAsync();
+    }
+
+    public async Task<ProductEntity> ReturnProductCategoryAsync(int id)
+    {
+        return await
+            _context.Product.Where(e => e.Id == id).FirstOrDefaultAsync();
     }
 
     public async Task<CategoryEntity> DeleteCategoryAsync(int id)

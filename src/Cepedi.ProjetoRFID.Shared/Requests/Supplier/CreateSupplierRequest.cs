@@ -1,6 +1,14 @@
-﻿namespace Cepedi.ProjetoRFID.Shared.Requests.Supplier;
+﻿using Cepedi.ProjetoRFID.Shared.Responses.Supplier;
+using MediatR;
+using OperationResult;
 
-public class CreateSupplierRequest
+namespace Cepedi.ProjetoRFID.Shared.Requests.Supplier;
+
+
+public class CreateSupplierRequest : IRequest<Result<CreateSupplierResponse>>, IValida
 {
-
+    public required string Name { get; set; }
+    public required string Description { get; set; }
+    public required string PhoneNumber { get; set; }
+    public int IdProduct { get; set; }
 }

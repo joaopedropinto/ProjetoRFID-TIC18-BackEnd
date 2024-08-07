@@ -1,6 +1,4 @@
 ﻿namespace Cepedi.ProjetoRFID.Shared.Responses.Supplier;
 
-public class CreateSupplierResponse
-{
+public record CreateSupplierResponse(int Id, int IdProduct, string Name, string Description, string PhoneNumber);
 
-}

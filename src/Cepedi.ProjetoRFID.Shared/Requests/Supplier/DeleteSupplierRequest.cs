@@ -1,6 +1,11 @@
-﻿namespace Cepedi.ProjetoRFID.Shared.Requests.Supplier;
+﻿using Cepedi.ProjetoRFID.Shared.Responses.Supplier;
+using MediatR;
+using OperationResult;
 
-public class DeleteSupplierRequest
+namespace Cepedi.ProjetoRFID.Shared.Requests.Supplier;
+
+
+public class DeleteSupplierRequest : IRequest<Result<DeleteSupplierResponse>>, IValida
 {
-
+    public int Id { get; set; }
 }

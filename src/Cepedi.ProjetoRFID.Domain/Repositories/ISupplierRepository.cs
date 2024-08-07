@@ -7,6 +7,6 @@ public interface ISupplierRepository
     Task<SupplierEntity> ReturnSupplierAsync(int id);
     Task<List<SupplierEntity>> ReturnAllSuppliersAsync();
     Task<SupplierEntity> UpdateSupplierAsync(SupplierEntity Name);
-    Task<ProductEntity> ReturnProductCategoryAsync(int id);
+    Task<ProductEntity> ReturnProductSupplierAsync(int id);
     Task<SupplierEntity> DeleteSupplierAsync(int id);
 }
