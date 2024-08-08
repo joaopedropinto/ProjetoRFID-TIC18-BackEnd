@@ -1,11 +1,10 @@
 ﻿using Cepedi.ProjetoRFID.Shared.Enums;
-using Cepedi.ProjetoRFID.Shared.Excecoes;
-using Cepedi.ProjetoRFID.Shared.Exececoes;
+using Cepedi.ProjetoRFID.Shared.Exceptions;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OperationResult;
 
-namespace Cepedi.Serasa.Cadastro.Api.Controllers;
+namespace Cepedi.ProjetoRFID.Api.Controllers;
 public class BaseController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -33,19 +32,19 @@ public class BaseController : ControllerBase
 
     protected ActionResult HandleError(Exception error) => error switch
     {
-        SemResultadoExcecao e => NoContent(),
-        RequestInvalidaExcecao e => BadRequest(FormatErrorMessage(e.ResultadoErro, e.Erros)),
-        ExcecaoAplicacao e => BadRequest(FormatErrorMessage(e.ResultadoErro)),
-        _ => BadRequest(FormatErrorMessage(CadastroErros.Generico))
+        NoResultException e => NoContent(),
+        InvalidRequestExeption e => BadRequest(FormatErrorMessage(e.ErrorResult, e.Errors)),
+        ExceptionApplication e => BadRequest(FormatErrorMessage(e.ErrorResult)),
+        _ => BadRequest(FormatErrorMessage(RegisteredErrors.Generic))
     };
 
-    private ResultadoErro FormatErrorMessage(ResultadoErro responseErro, IEnumerable<string>? errors = null)
+    private ErrorResult FormatErrorMessage(ErrorResult responseError, IEnumerable<string>? errors = null)
     {
         if (errors != null)
         {
-            responseErro.Descricao = $"{responseErro.Descricao}: {string.Join("; ", errors!)}";
+            responseError.ErrorDescription = $"{responseError.ErrorDescription}: {string.Join("; ", errors!)}";
         }
 
-        return responseErro;
+        return responseError;
     }
 }

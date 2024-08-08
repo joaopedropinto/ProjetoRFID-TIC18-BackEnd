@@ -7,118 +7,97 @@ public class RegisteredErrors
     {
         ErrorTitle = "Ops ocorreu um erro no nosso sistema",
         ErrorDescription = "No momento, nosso sistema está indisponível. Por Favor tente novamente",
-        Tipo = TypeError.Erro
+        Tipo = TypeError.Error
     };
 
-    public static readonly ErrorResult SemResultados = new()
+    public static readonly ErrorResult NoResults = new()
     {
         ErrorTitle = "Sua busca não obteve resultados",
         ErrorDescription = "Tente buscar novamente",
-        Tipo = TypeError.Alerta
+        Tipo = TypeError.Alert
     };
 
-    public static ErrorResult DadosInvalidos = new()
+    public static ErrorResult InvalidData = new()
     {
         ErrorTitle = "Dados inválidos",
         ErrorDescription = "Os dados enviados na requisição são inválidos",
-        Tipo = TypeError.Erro
+        Tipo = TypeError.Error
     };
 
-    public static ErrorResult ErroGravacaoUsuario = new()
+    public static ErrorResult ErrorSavingProduct = new()
     {
         ErrorTitle = "Ocorreu um erro na gravação",
-        ErrorDescription = "Ocorreu um erro na gravação do usuário. Por favor tente novamente",
-        Tipo = TypeError.Erro
+        ErrorDescription = "Ocorreu um erro na gravação de Produto. Por favor tente novamente",
+        Tipo = TypeError.Error
     };
-
-    public static ErrorResult ErroGravacaoPessoa = new()
+    public static ErrorResult ErrorSavingCategory = new()
     {
         ErrorTitle = "Ocorreu um erro na gravação",
-        ErrorDescription = "Ocorreu um erro na gravação de Pessoa. Por favor tente novamente",
-        Tipo = TypeError.Erro
+        ErrorDescription = "Ocorreu um erro na gravação de Categoria. Por favor tente novamente",
+        Tipo = TypeError.Error
     };
-
-    public static ErrorResult ErroGravacaoMovimentacao = new()
+    public static ErrorResult ErrorSavingSupplier = new()
     {
         ErrorTitle = "Ocorreu um erro na gravação",
-        ErrorDescription = "Ocorreu um erro na gravação de Movimentacao. Por favor tente novamente",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "Ocorreu um erro na gravação de Fornecedor. Por favor tente novamente",
+        Tipo = TypeError.Error
     };
-
-    public static ErrorResult ErroGravacaoConsulta = new()
-    {
-        ErrorTitle = "Ocorreu um erro na gravação",
-        ErrorDescription = "Ocorreu um erro na gravação de Consulta. Por favor tente novamente",
-        Tipo = TypeError.Erro
-    };
-
-    public static ErrorResult IdMovimentacaoInvalido = new()
+    public static ErrorResult IdProductInvalid = new()
     {
         ErrorTitle = "Dado inválido",
-        ErrorDescription = "O ID da movimentação especificada não é válido",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "O ID do produto especificado não é válido",
+        Tipo = TypeError.Alert
     };
-
-    public static ErrorResult IdTipoMovimentacaoInvalido = new()
+    public static ErrorResult IdCategoryInvalid = new()
     {
         ErrorTitle = "Dado inválido",
-        ErrorDescription = "O ID do tipo de movimentação especificado não é válido",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "O ID da categoria especificada não é válido",
+        Tipo = TypeError.Alert
     };
-
-    public static ErrorResult IdPessoaInvalido = new()
+    public static ErrorResult IdSupplierInvalid = new()
     {
         ErrorTitle = "Dado inválido",
-        ErrorDescription = "O ID da pessoa especificada não é válido",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "O ID do fornecedor especificado não é válido",
+        Tipo = TypeError.Alert
     };
-
-    public static ErrorResult IdConsultaInvalido = new()
+    public static ErrorResult ProductAlreadyExist = new()
     {
         ErrorTitle = "Dado inválido",
-        ErrorDescription = "O ID da consulta especificada não é válido",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "Esse produto ja existe",
+        Tipo = TypeError.Alert
     };
 
-    public static ErrorResult IdScoreInvalido = new()
+    public static ErrorResult CategoryAlreadyExist = new()
     {
         ErrorTitle = "Dado inválido",
-        ErrorDescription = "O ID do score especificado não é válido",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "Essa categoria ja existe",
+        Tipo = TypeError.Alert
     };
 
-    public static ErrorResult ScoreJaExistente = new()
+    public static ErrorResult SupplierAlreadyExist = new()
     {
         ErrorTitle = "Dado inválido",
-        ErrorDescription = "Essa pessoa já tem um score associado",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "Esse fornecedor ja existe",
+        Tipo = TypeError.Alert
     };
-
-    public static ErrorResult ListaMovimentacoesVazia = new()
+    public static ErrorResult ProductListEmpty = new()
     {
         ErrorTitle = "Lista vazia",
-        ErrorDescription = "A lista de movimentações retornada está vazia",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "A lista de produtos retornada está vazia",
+        Tipo = TypeError.Alert
     };
 
-    public static ErrorResult ListaScoresVazia = new()
+    public static ErrorResult CategoryListEmpty = new()
     {
         ErrorTitle = "Lista vazia",
-        ErrorDescription = "A lista de scores retornada está vazia",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "A lista de categorias retornada está vazia",
+        Tipo = TypeError.Alert
     };
 
-    public static ErrorResult ListaTiposMovimentacaoVazia = new()
+    public static ErrorResult SupplierListEmpty = new()
     {
         ErrorTitle = "Lista vazia",
-        ErrorDescription = "A lista de tipos de movitação retornada está vazia",
-        Tipo = TypeError.Alerta
-    };
-
-    public static ErrorResult ListaConsultasVazia = new()
-    {
-        ErrorTitle = "Lista vazia",
-        ErrorDescription = "A lista de consultas retornada está vazia",
-        Tipo = TypeError.Alerta
+        ErrorDescription = "A lista de fornecedores retornada está vazia",
+        Tipo = TypeError.Alert
     };
 }

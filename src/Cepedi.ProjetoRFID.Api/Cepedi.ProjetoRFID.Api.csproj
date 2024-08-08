@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cepedi.ProjetoRFID.Shared\Cepedi.ProjetoRFID.Shared.csproj" />
+    <ProjectReference Include="..\Cepedi.ProjetoRFID.Ioc\Cepedi.ProjetoRFID.Ioc.csproj" />
   </ItemGroup>
 
 </Project>
