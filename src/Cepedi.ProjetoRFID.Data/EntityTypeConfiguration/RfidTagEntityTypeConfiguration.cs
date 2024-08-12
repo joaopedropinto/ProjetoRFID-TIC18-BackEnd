@@ -9,7 +9,7 @@ public class RfidTagEntityTypeConfiguration : IEntityTypeConfiguration<RfidTagEn
     public void Configure(EntityTypeBuilder<RfidTagEntity> builder)
     {
         builder.HasKey(e => e.Id);
-        builder.Property(e => e.Rfid).IsRequired();
+        builder.Property(e => e.RfidTag).IsRequired();
     }
 
 }
