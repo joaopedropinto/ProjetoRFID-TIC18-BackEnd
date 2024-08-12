@@ -3,5 +3,10 @@
 public class RfidTagEntity
 {
     public int Id { get; set; }
-    public string Rfid { get; set; }
+    public string RfidTag { get; set; }
+
+    internal void Update(string rfidTag)
+    {
+        RfidTag = rfidTag;
+    }
 }

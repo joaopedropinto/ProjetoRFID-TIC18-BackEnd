@@ -2,9 +2,9 @@
 
 public interface IRfidTagRepository
 {
-    Task AddAsync(RfidTagEntity rfidTag);
-    Task<RfidTagEntity> GetByRfidAsync(string rfid);
-    Task<List<RfidTagEntity>> GetAllAsync();
-    Task UpdateAsync(RfidTagEntity rfidTag);
-    Task RemoveAsync(RfidTagEntity rfidTag);
+    Task<RfidTagEntity> CreateRfidTagAsync(RfidTagEntity rfidTag);
+    Task<RfidTagEntity> ReturnRfidTagAsync(int id);
+    Task<List<RfidTagEntity>> ReturnAllRfidTagsAsync();
+    Task<RfidTagEntity> UpdateRfidTagAsync(RfidTagEntity rfidTag);
+    Task<RfidTagEntity> DeleteRfidTagAsync(int id);
 }

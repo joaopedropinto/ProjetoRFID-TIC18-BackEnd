@@ -12,31 +12,40 @@ public class RfidTagRepository : IRfidTagRepository
         _context = context;
     }
 
-    public async Task AddAsync(RfidTagEntity rfidTag)
+    public async Task<RfidTagEntity> CreateRfidTagAsync(RfidTagEntity rfidTag)
     {
         await _context.RfidTag.AddAsync(rfidTag);
         await _context.SaveChangesAsync();
+        return rfidTag;
     }
 
-    public async Task<RfidTagEntity> GetByRfidAsync(string rfid)
+    public async Task<RfidTagEntity> ReturnRfidTagAsync(int id)
     {
-        return await _context.RfidTag.FirstOrDefaultAsync(e => e.Rfid == rfid);
+        return await _context.RfidTag.FirstOrDefaultAsync(e => e.Id == id);
     }
 
-    public async Task<List<RfidTagEntity>> GetAllAsync()
+    public async Task<List<RfidTagEntity>> ReturnAllRfidTagsAsync()
     {
-        return await _context.RfidTag.ToListAsync();
+        return await _context.Set<RfidTagEntity>().ToListAsync();
     }
 
-    public async Task UpdateAsync(RfidTagEntity rfidTag)
+    public async Task<RfidTagEntity> UpdateRfidTagAsync(RfidTagEntity rfidTag)
     {
         _context.RfidTag.Update(rfidTag);
         await _context.SaveChangesAsync();
+        return rfidTag;
     }
 
-    public async Task RemoveAsync(RfidTagEntity rfidTag)
+    public async Task<RfidTagEntity> DeleteRfidTagAsync(int id)
     {
+        var rfidTag = await ReturnRfidTagAsync(id);
+        if (rfidTag == null)
+        {
+            return null;
+        }
+
         _context.RfidTag.Remove(rfidTag);
         await _context.SaveChangesAsync();
+        return rfidTag;
     }
 }
