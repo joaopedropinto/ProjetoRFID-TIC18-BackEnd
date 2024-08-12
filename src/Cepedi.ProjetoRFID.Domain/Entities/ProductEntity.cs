@@ -10,7 +10,9 @@ public class ProductEntity
 {
     public int Id { get; set; }
     public int IdCategory { get; set; }
+    public CategoryEntity? Category { get; set; }
     public int IdSupplier { get; set; }
+    public SupplierEntity? Supplier { get; set; }
     public int IdTag { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
