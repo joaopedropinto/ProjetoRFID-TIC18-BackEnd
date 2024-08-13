@@ -15,7 +15,7 @@ namespace Cepedi.ProjetoRFID.Ioc
     [ExcludeFromCodeCoverage]
     public static class IoCServiceExtension
     {
-        public static void ConfigureAppDependence(this IServiceCollection services, IConfiguration configuration)
+        public static void ConfigureAppDependencies(this IServiceCollection services, IConfiguration configuration)
         {
             ConfigureDbContext(services, configuration);
 
@@ -60,5 +60,6 @@ namespace Cepedi.ProjetoRFID.Ioc
 
             services.AddScoped<ApplicationDbContextInitialiser>();
         }
+
     }
 }
