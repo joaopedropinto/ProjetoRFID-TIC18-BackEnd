@@ -28,6 +28,8 @@ public class UpdateRfidTagRequestHandler : IRequestHandler<UpdateRfidTagRequest,
 
         rfidTag.Update(request.RfidTag);
 
+        await _rfidTagRepository.UpdateRfidTagAsync(rfidTag);
+
         var response = new UpdateRfidTagResponse(rfidTag.Id, rfidTag.RfidTag);
 
         return Result.Success(response);

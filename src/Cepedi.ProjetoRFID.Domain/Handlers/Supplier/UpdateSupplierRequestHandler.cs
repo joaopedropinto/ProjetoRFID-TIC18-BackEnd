@@ -30,6 +30,8 @@ public class UpdateSupplierRequestHandler
 
         supplier.Update(request.Name, request.Description, request.PhoneNumber);
 
+        await _supplierRepository.UpdateSupplierAsync(supplier);
+
         var response = new UpdateSupplierResponse(supplier.Id,
                                                 supplier.IdProduct,
                                                 supplier.Name,

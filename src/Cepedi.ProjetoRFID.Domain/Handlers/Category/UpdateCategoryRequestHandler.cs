@@ -30,6 +30,8 @@ public class UpdateCategoryRequestHandler
 
         category.Update(request.Name, request.Origin, request.Color);
 
+        await _categoryRepository.UpdateCategoryAsync(category);
+
         var response = new UpdateCategoryResponse(category.Id,
                                                 category.IdProduct,
                                                 category.Name,
