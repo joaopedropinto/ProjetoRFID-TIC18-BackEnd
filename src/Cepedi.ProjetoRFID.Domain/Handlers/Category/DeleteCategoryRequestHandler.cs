@@ -1,8 +1,6 @@
-﻿using Cepedi.ProjetoRFID.Domain.Entities;
-using Cepedi.ProjetoRFID.Domain.Repositories;
+﻿using Cepedi.ProjetoRFID.Domain.Repositories;
 using Cepedi.ProjetoRFID.Shared.Requests.Category;
 using Cepedi.ProjetoRFID.Shared.Responses.Category;
-using Cepedi.ProjetoRFID.Shared.Enums;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using OperationResult;
@@ -32,7 +30,6 @@ public class DeleteCategoryRequestHandler
 
 
         var response = new DeleteCategoryResponse(category.Id,
-                                                category.IdProduct,
                                                 category.Name,
                                                 category.Origin,
                                                 category.Color);

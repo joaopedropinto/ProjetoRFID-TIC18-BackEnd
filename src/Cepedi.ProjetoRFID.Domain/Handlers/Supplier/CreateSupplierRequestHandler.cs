@@ -22,26 +22,18 @@ public class CreateSupplierRequestHandler
 
     public async Task<Result<CreateSupplierResponse>> Handle(CreateSupplierRequest request, CancellationToken cancellationToken)
     {
-        var product = await _supplierRepository.ReturnProductSupplierAsync(request.IdProduct);
-        if (product == null)
-        {
-            //return Result.Error<CreateSupplierResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
-        }
-
         var supplier = new SupplierEntity()
         {
-            IdProduct = request.IdProduct,
             Name = request.Name,
             Description = request.Description,
             PhoneNumber = request.PhoneNumber,
-            
+
         };
 
         await _supplierRepository.CreateSupplierAsync(supplier);
 
 
         var response = new CreateSupplierResponse(supplier.Id,
-                                                supplier.IdProduct,
                                                 supplier.Name,
                                                 supplier.Description,
                                                 supplier.PhoneNumber);

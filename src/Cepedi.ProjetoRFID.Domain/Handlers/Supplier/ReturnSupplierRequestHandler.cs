@@ -32,7 +32,6 @@ public class ReturnSupplierRequestHandler
 
 
         var response = new ReturnSupplierResponse(supplier.Id,
-                                                supplier.IdProduct,
                                                 supplier.Name,
                                                 supplier.Description,
                                                 supplier.PhoneNumber);

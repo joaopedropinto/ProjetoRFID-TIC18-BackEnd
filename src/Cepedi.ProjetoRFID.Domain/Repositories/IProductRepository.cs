@@ -8,4 +8,5 @@ public interface IProductRepository
     Task<List<ProductEntity>> ReturnAllProductsAsync();
     Task<ProductEntity> UpdateProductAsync(ProductEntity product);
     Task<ProductEntity> DeleteProductAsync(int id);
+    Task<List<ProductEntity>> GetProductsByRfidsAsync(List<string> rfids);
 }

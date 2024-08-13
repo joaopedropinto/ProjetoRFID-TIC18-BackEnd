@@ -9,5 +9,4 @@ public class CreateCategoryRequest : IRequest<Result<CreateCategoryResponse>>, I
     public required string Name { get; set; }
     public required string Origin { get; set; }
     public required string Color { get; set; }
-    public int IdProduct { get; set; }
 }

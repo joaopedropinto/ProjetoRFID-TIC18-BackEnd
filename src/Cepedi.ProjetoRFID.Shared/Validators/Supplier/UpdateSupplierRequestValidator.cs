@@ -10,10 +10,6 @@ public class UpdateSupplierRequestValidator : AbstractValidator<UpdateSupplierRe
         RuleFor(Supplier => Supplier.Id)
            .NotNull().WithMessage("O Id do fornecedor é obrigatório.")
            .GreaterThan(0).WithMessage("Id de fornecedor inválido.");
-           
-        RuleFor(Supplier => Supplier.IdProduct)
-            .NotNull().WithMessage("O Id do produto é obrigatório.")
-            .GreaterThan(0).WithMessage("Id de produto inválido.");
 
         RuleFor(Supplier => Supplier.Name)
             .NotEmpty().WithMessage("O nome do fornecedor deve ser informado")

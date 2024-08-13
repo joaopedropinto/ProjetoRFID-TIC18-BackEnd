@@ -32,7 +32,6 @@ public class ReturnCategoryRequestHandler
 
 
         var response = new ReturnCategoryResponse(category.Id,
-                                                category.IdProduct,
                                                 category.Name,
                                                 category.Origin,
                                                 category.Color);

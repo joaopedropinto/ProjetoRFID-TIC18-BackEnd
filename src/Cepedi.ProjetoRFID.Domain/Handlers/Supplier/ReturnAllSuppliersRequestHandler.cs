@@ -32,7 +32,6 @@ public class ReturnAllSuppliersRequestHandler
         foreach (var supplier in suppliers)
         {
             response.Add(new ReturnAllSuppliersResponse(supplier.Id,
-                                                        supplier.IdProduct,
                                                         supplier.Name,
                                                         supplier.Description,
                                                         supplier.PhoneNumber));

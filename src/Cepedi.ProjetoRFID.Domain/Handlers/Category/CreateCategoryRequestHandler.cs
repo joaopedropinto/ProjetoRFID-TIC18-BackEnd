@@ -22,26 +22,18 @@ public class CreateCategoryRequestHandler
 
     public async Task<Result<CreateCategoryResponse>> Handle(CreateCategoryRequest request, CancellationToken cancellationToken)
     {
-        var product = await _categoryRepository.ReturnProductCategoryAsync(request.IdProduct);
-        if (product == null)
-        {
-            //return Result.Error<CreateCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
-        }
-
         var category = new CategoryEntity()
         {
-            IdProduct = request.IdProduct,
             Name = request.Name,
             Origin = request.Origin,
             Color = request.Color,
-            
+
         };
 
         await _categoryRepository.CreateCategoryAsync(category);
 
 
         var response = new CreateCategoryResponse(category.Id,
-                                                category.IdProduct,
                                                 category.Name,
                                                 category.Origin,
                                                 category.Color);

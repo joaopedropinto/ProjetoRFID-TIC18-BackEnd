@@ -10,7 +10,6 @@ public class SupplierEntityTypeConfiguration : IEntityTypeConfiguration<Supplier
     {
         builder.ToTable("Supplier");
         builder.HasKey(e => e.Id);
-        builder.Property(e => e.IdProduct).IsRequired().HasMaxLength(100);
         builder.Property(e => e.Name).IsRequired().HasMaxLength(100);
         builder.Property(e => e.Description).IsRequired().HasMaxLength(100);
         builder.Property(e => e.PhoneNumber).IsRequired().HasMaxLength(11);

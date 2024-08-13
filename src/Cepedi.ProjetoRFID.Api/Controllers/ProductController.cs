@@ -49,4 +49,12 @@ public class ProductController : BaseController
     [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status204NoContent)]
     public async Task<ActionResult<DeleteProductResponse>> DeleteProductAsync(
         [FromRoute] DeleteProductRequest request) => await SendCommand(request);
+
+    [HttpPost("get-products-by-rfids")]
+    [ProducesResponseType(typeof(List<GetProductsByRfidsResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<List<GetProductsByRfidsResponse>>> GetProductsByRfidsAsync([FromBody] GetProductsByRfidsRequest request)
+    {
+        return await SendCommand(request);
+    }
 }

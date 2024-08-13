@@ -1,8 +1,6 @@
-﻿using Cepedi.ProjetoRFID.Domain.Entities;
-using Cepedi.ProjetoRFID.Domain.Repositories;
+﻿using Cepedi.ProjetoRFID.Domain.Repositories;
 using Cepedi.ProjetoRFID.Shared.Requests.Supplier;
 using Cepedi.ProjetoRFID.Shared.Responses.Supplier;
-using Cepedi.ProjetoRFID.Shared.Enums;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using OperationResult;
@@ -32,7 +30,6 @@ public class DeleteSupplierRequestHandler
 
 
         var response = new DeleteSupplierResponse(supplier.Id,
-                                                supplier.IdProduct,
                                                 supplier.Name,
                                                 supplier.Description,
                                                 supplier.PhoneNumber);

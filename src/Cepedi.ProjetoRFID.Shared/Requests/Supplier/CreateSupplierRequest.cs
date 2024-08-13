@@ -10,5 +10,4 @@ public class CreateSupplierRequest : IRequest<Result<CreateSupplierResponse>>, I
     public required string Name { get; set; }
     public required string Description { get; set; }
     public required string PhoneNumber { get; set; }
-    public int IdProduct { get; set; }
 }

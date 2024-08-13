@@ -32,7 +32,6 @@ public class ReturnAllCategoriesRequestHandler
         foreach (var category in categories)
         {
             response.Add(new ReturnAllCategoriesResponse(category.Id,
-                                                        category.IdProduct,
                                                         category.Name,
                                                         category.Origin,
                                                         category.Color));

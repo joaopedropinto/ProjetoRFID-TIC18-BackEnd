@@ -10,7 +10,6 @@ public class CategoryEntityTypeConfiguration : IEntityTypeConfiguration<Category
     {
         builder.ToTable("Category");
         builder.HasKey(e => e.Id);
-        builder.Property(e => e.IdProduct).IsRequired();
         builder.Property(e => e.Name).IsRequired().HasMaxLength(100);
         builder.Property(e => e.Origin).IsRequired().HasMaxLength(100);
         builder.Property(e => e.Color).IsRequired().HasMaxLength(100);
