@@ -14,6 +14,7 @@ public class ProductEntity
     public int IdSupplier { get; set; }
     public SupplierEntity? Supplier { get; set; }
     public int IdTag { get; set; }
+    public RfidTagEntity? Tag { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
     public decimal Weight { get; set; }
