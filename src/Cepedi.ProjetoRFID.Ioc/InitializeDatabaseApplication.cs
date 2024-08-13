@@ -1,4 +1,6 @@
 ﻿using Cepedi.ProjetoRFID.Data;
+using Cepedi.ProjetoRFID.Domain;
+
 //using Cepedi.ProjetoRFID.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -41,9 +43,19 @@ public class ApplicationDbContextInitialiser
             throw;
         }
     }
-    
+
     public async Task TrySeedAsync()
     {
-        
+        // Default roles
+        var tag = new RfidTagEntity { Id = 1, RfidTag = "1234567890" };
+
+        // Default data
+        // Seed, if necessary
+        if (!_context.RfidTag.Any())
+        {
+            _context.RfidTag.Add(tag);
+
+            await _context.SaveChangesAsync();
+        }
     }
 }
