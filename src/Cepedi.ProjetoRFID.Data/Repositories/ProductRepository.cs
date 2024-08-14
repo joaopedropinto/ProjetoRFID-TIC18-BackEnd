@@ -60,8 +60,7 @@ public class ProductRepository : IProductRepository
     public async Task<List<ProductEntity>> GetProductsByRfidsAsync(List<string> rfids)
     {
         return await _context.Product
-            .Include(p => p.Tag)
-            .Where(p => rfids.Contains(p.Tag.RfidTag))
+            .Where(p => rfids.Contains(p.RfidTag))
             .ToListAsync();
     }
 }

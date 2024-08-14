@@ -15,10 +15,6 @@ public class CreateProductRequestValidator : AbstractValidator<CreateProductRequ
             .NotNull().WithMessage("O Id do fornecedor é obrigatório.")
             .GreaterThan(0).WithMessage("Id de fornecedor inválido.");
 
-        RuleFor(Product => Product.IdTag)
-            .NotNull().WithMessage("O Id da etiqueta é obrigatório.")
-            .GreaterThan(0).WithMessage("Id de etiqueta inválido.");
-
         RuleFor(Product => Product.Name)
             .NotEmpty().WithMessage("O nome do produto deve ser informado")
             .MinimumLength(3).WithMessage("Nome do produto deve ter no mínimo 3 caracteres")
@@ -40,7 +36,7 @@ public class CreateProductRequestValidator : AbstractValidator<CreateProductRequ
         RuleFor(Product => Product.DueDate)
             .NotNull().WithMessage("A data de validade do produto deve ser informado")
             .Must(dataHora => dataHora != default(DateTime)).WithMessage("Data deve ser valida");
-        
+
         RuleFor(Product => Product.UnitMeasurement)
             .NotEmpty().WithMessage("A unidade de medida do produto deve ser informado")
             .MinimumLength(3).WithMessage("Unidade de medida do produto deve ter no mínimo 3 caracteres")

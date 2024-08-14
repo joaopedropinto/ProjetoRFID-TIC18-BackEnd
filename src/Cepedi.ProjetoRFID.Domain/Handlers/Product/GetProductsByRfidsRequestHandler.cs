@@ -4,6 +4,8 @@ using Cepedi.ProjetoRFID.Shared.Responses.Product;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using OperationResult;
+using System.IO;
+using System.Text.Json;
 
 namespace Cepedi.ProjetoRFID.Domain.Handlers.Product;
 
@@ -20,13 +22,37 @@ public class GetProductsByRfidsRequestHandler : IRequestHandler<GetProductsByRfi
 
     public async Task<Result<List<GetProductsByRfidsResponse>>> Handle(GetProductsByRfidsRequest request, CancellationToken cancellationToken)
     {
-        var products = await _productRepository.GetProductsByRfidsAsync(request.Rfids);
-        if (products == null)
+        var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        var projectRoot = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\..\..\"));
+        var filePath = Path.Combine(projectRoot, "Cepedi.ProjetoRFID.Data", "DataBase", "reading.json");
+
+        var jsonContent = await System.IO.File.ReadAllTextAsync(filePath);
+
+        var readings = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(jsonContent);
+
+        var rfids = readings.Select(r => r["rfid"].ToString()).ToList();
+
+        var products = await _productRepository.GetProductsByRfidsAsync(rfids);
+
+        if (products == null || !products.Any())
         {
-            //return Result.Error<GetCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            // return Result.Error<List<GetProductsByRfidsResponse>>("Nenhum produto encontrado.");
         }
 
-        var response = products.Select(p => new GetProductsByRfidsResponse(p.Id, p.Name, p.Description, p.Weight, p.ManufacDate, p.DueDate, p.UnitMeasurement, p.PackingType, p.BatchNumber, p.Quantity, p.Price)).ToList();
+        // Mapeia os produtos para o response
+        var response = products.Select(p => new GetProductsByRfidsResponse(
+            p.Id,
+            p.Name,
+            p.RfidTag,
+            p.Description,
+            p.Weight,
+            p.ManufacDate,
+            p.DueDate,
+            p.UnitMeasurement,
+            p.PackingType,
+            p.BatchNumber,
+            p.Quantity,
+            p.Price)).ToList();
 
         return Result.Success(response);
     }

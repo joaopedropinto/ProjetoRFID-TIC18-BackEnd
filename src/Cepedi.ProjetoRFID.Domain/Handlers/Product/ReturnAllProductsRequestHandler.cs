@@ -34,7 +34,7 @@ public class ReturnAllProductsRequestHandler
             response.Add(new ReturnAllProductsResponse(product.Id,
                                                 product.IdCategory,
                                                 product.IdSupplier,
-                                                product.IdTag,
+                                                product.RfidTag,
                                                 product.Name,
                                                 product.Description,
                                                 product.Weight,

@@ -32,8 +32,8 @@ public class CreateProductRequestHandler
         {
             IdCategory = request.IdCategory,
             IdSupplier = request.IdSupplier,
-            IdTag = request.IdTag,
             Name = request.Name,
+            RfidTag = request.RfidTag,
             Description = request.Description,
             Weight = request.Weight,
             ManufacDate = request.ManufacDate,
@@ -42,7 +42,7 @@ public class CreateProductRequestHandler
             PackingType = request.PackingType,
             BatchNumber = request.BatchNumber,
             Quantity = request.Quantity,
-            Price = request.Price  
+            Price = request.Price
         };
 
         await _productRepository.CreateProductAsync(product);
@@ -51,8 +51,8 @@ public class CreateProductRequestHandler
         var response = new CreateProductResponse(product.Id,
                                                 product.IdCategory,
                                                 product.IdSupplier,
-                                                product.IdTag,
                                                 product.Name,
+                                                product.RfidTag,
                                                 product.Description,
                                                 product.Weight,
                                                 product.ManufacDate,

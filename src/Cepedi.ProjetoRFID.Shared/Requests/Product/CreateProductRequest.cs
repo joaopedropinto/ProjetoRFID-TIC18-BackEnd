@@ -8,8 +8,8 @@ public class CreateProductRequest : IRequest<Result<CreateProductResponse>>, IVa
 {
     public int IdCategory { get; set; }
     public int IdSupplier { get; set; }
-    public int IdTag { get; set; }
     public string? Name { get; set; }
+    public string? RfidTag { get; set; }
     public string? Description { get; set; }
     public decimal Weight { get; set; }
     public DateTime ManufacDate { get; set; }

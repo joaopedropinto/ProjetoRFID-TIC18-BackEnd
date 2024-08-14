@@ -50,11 +50,12 @@ public class ProductController : BaseController
     public async Task<ActionResult<DeleteProductResponse>> DeleteProductAsync(
         [FromRoute] DeleteProductRequest request) => await SendCommand(request);
 
-    [HttpPost("get-products-by-rfids")]
+    [HttpGet("get-products-by-rfids")]
     [ProducesResponseType(typeof(List<GetProductsByRfidsResponse>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<List<GetProductsByRfidsResponse>>> GetProductsByRfidsAsync([FromBody] GetProductsByRfidsRequest request)
+    public async Task<ActionResult<List<GetProductsByRfidsResponse>>> GetProductsByRfidsAsync()
     {
+        var request = new GetProductsByRfidsRequest(new List<string>());
         return await SendCommand(request);
     }
 }

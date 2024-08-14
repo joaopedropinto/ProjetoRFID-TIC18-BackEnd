@@ -12,8 +12,8 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<ProductEn
                 builder.HasKey(e => e.Id);
                 builder.Property(e => e.IdCategory).IsRequired();
                 builder.Property(e => e.IdSupplier).IsRequired();
-                builder.Property(e => e.IdTag).IsRequired();
                 builder.Property(e => e.Name).IsRequired().HasMaxLength(100);
+                builder.Property(e => e.RfidTag).IsRequired();
                 builder.Property(e => e.Description).IsRequired().HasMaxLength(100);
                 builder.Property(e => e.Weight)
                         .IsRequired()
@@ -36,11 +36,6 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<ProductEn
                 builder.HasOne(e => e.Supplier)
                         .WithMany()
                         .HasForeignKey(e => e.IdSupplier)
-                        .IsRequired();
-
-                builder.HasOne(e => e.Tag)
-                        .WithMany()
-                        .HasForeignKey(e => e.IdTag)
                         .IsRequired();
         }
 }

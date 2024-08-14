@@ -9,7 +9,6 @@ public class UpdateProductRequest : IRequest<Result<UpdateProductResponse>>, IVa
     public int Id { get; set; }
     public int IdCategory { get; set; }
     public int IdSupplier { get; set; }
-    public int IdTag { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
     public decimal Weight { get; set; }

@@ -5,6 +5,7 @@ public record class GetProductsByRfidsResponse
 {
     public int Id { get; set; }
     public string Nome { get; set; }
+    public string RfidTag { get; set; }
     public string Descricao { get; set; }
     public decimal Peso { get; set; }
     public DateTime DataFabricacao { get; set; }
@@ -16,10 +17,11 @@ public record class GetProductsByRfidsResponse
     public decimal Preco { get; set; }
 
 
-    public GetProductsByRfidsResponse(int id, string nome, string descricao, decimal peso, DateTime dataFabricacao, DateTime dataValidade, string unidadeMedida, string tipoEmbalagem, string numeroLote, int quantidade, decimal preco)
+    public GetProductsByRfidsResponse(int id, string nome, string RifdTag, string descricao, decimal peso, DateTime dataFabricacao, DateTime dataValidade, string unidadeMedida, string tipoEmbalagem, string numeroLote, int quantidade, decimal preco)
     {
         Id = id;
         Nome = nome;
+        RfidTag = RifdTag;
         Descricao = descricao;
         Peso = peso;
         DataFabricacao = dataFabricacao;
