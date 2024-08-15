@@ -17,11 +17,11 @@ public record class GetProductsByRfidsResponse
     public decimal Preco { get; set; }
 
 
-    public GetProductsByRfidsResponse(int id, string nome, string RifdTag, string descricao, decimal peso, DateTime dataFabricacao, DateTime dataValidade, string unidadeMedida, string tipoEmbalagem, string numeroLote, int quantidade, decimal preco)
+    public GetProductsByRfidsResponse(int id, string nome, string rfidTag, string descricao, decimal peso, DateTime dataFabricacao, DateTime dataValidade, string unidadeMedida, string tipoEmbalagem, string numeroLote, int quantidade, decimal preco)
     {
         Id = id;
         Nome = nome;
-        RfidTag = RifdTag;
+        RfidTag = rfidTag;
         Descricao = descricao;
         Peso = peso;
         DataFabricacao = dataFabricacao;
