@@ -26,9 +26,11 @@ public class ProductEntity
     public int Quantity { get; set; }
     public decimal Price { get; set; } = 0;
 
-    internal void Update(string name, string description, decimal weight, DateTime manufacDate, DateTime dueDate,
+    internal void Update(int idCategory, int idSupplier, string name, string description, decimal weight, DateTime manufacDate, DateTime dueDate,
      string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price)
     {
+        IdCategory = idCategory;
+        IdSupplier = idSupplier;
         Name = name;
         Description = description;
         Weight = weight;
