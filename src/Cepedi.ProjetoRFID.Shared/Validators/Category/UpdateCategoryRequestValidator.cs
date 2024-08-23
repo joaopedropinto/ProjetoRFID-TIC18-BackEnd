@@ -8,8 +8,8 @@ public class UpdateCategoryRequestValidator : AbstractValidator<UpdateCategoryRe
     public UpdateCategoryRequestValidator()
     {
         RuleFor(Category => Category.Id)
-            .NotNull().WithMessage("O Id da categoria é obrigatório.")
-            .GreaterThan(0).WithMessage("Id de categoria inválido.");
+            .NotEmpty().WithMessage("O Id da categoria é obrigatório.");
+            //.GreaterThan(0).WithMessage("Id de categoria inválido.");
 
         RuleFor(Category => Category.Name)
             .NotEmpty().WithMessage("O nome da categoria deve ser informado")

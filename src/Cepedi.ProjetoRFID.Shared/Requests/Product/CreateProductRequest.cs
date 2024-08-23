@@ -6,8 +6,8 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.Product;
 
 public class CreateProductRequest : IRequest<Result<CreateProductResponse>>, IValida
 {
-    public int IdCategory { get; set; }
-    public int IdSupplier { get; set; }
+    public Guid IdCategory { get; set; }
+    public Guid IdSupplier { get; set; }
     public string? Name { get; set; }
     public string? RfidTag { get; set; }
     public string? Description { get; set; }

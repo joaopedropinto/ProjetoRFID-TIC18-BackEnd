@@ -6,5 +6,5 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.RfidTag;
 
 public class DeleteRfidTagRequest : IRequest<Result<DeleteRfidTagResponse>>, IValida
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

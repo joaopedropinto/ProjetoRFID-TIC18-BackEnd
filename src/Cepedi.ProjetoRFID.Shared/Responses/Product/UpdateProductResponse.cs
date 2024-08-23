@@ -1,5 +1,5 @@
 ﻿namespace Cepedi.ProjetoRFID.Shared.Responses.Product;
 
-public record UpdateProductResponse(int Id, int IdCategory, int IdSupplier, string Name, string RfidTag, string Description, decimal Weight,
+public record UpdateProductResponse(Guid Id, int IdCategory, int IdSupplier, string Name, string RfidTag, string Description, decimal Weight,
 DateTime ManufacDate, DateTime DueDate, string UnitMeasurement, string PackingType, string BatchNumber, int Quantity,
 decimal Price);

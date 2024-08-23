@@ -6,5 +6,5 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.Product;
 
 public class ReturnProductRequest : IRequest<Result<ReturnProductResponse>>, IValida
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }
