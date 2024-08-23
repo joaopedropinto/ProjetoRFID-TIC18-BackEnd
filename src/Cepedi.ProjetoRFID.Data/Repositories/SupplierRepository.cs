@@ -30,7 +30,7 @@ public class SupplierRepository : ISupplierRepository
         return name;
     }
 
-    public async Task<SupplierEntity> ReturnSupplierAsync(int id)
+    public async Task<SupplierEntity> ReturnSupplierAsync(Guid id)
     {
         return await
             _context.Supplier.Where(e => e.Id == id).FirstOrDefaultAsync();
@@ -41,12 +41,12 @@ public class SupplierRepository : ISupplierRepository
         return await _context.Set<SupplierEntity>().ToListAsync();
     }
 
-    public async Task<ProductEntity> ReturnProductSupplierAsync(int id)
+    public async Task<ProductEntity> ReturnProductSupplierAsync(Guid id)
     {
         return await
             _context.Product.Where(e => e.Id == id).FirstOrDefaultAsync();
     }
-    public async Task<SupplierEntity> DeleteSupplierAsync(int id)
+    public async Task<SupplierEntity> DeleteSupplierAsync(Guid id)
     {
         var supplierEntity = await ReturnSupplierAsync(id);
 

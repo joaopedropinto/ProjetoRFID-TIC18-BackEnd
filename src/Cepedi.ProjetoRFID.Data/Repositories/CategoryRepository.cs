@@ -30,7 +30,7 @@ public class CategoryRepository : ICategoryRepository
         return name;
     }
 
-    public async Task<CategoryEntity> ReturnCategoryAsync(int id)
+    public async Task<CategoryEntity> ReturnCategoryAsync(Guid id)
     {
         return await
             _context.Category.Where(e => e.Id == id).FirstOrDefaultAsync();
@@ -41,13 +41,13 @@ public class CategoryRepository : ICategoryRepository
         return await _context.Set<CategoryEntity>().ToListAsync();
     }
 
-    public async Task<ProductEntity> ReturnProductCategoryAsync(int id)
+    public async Task<ProductEntity> ReturnProductCategoryAsync(Guid id)
     {
         return await
             _context.Product.Where(e => e.Id == id).FirstOrDefaultAsync();
     }
 
-    public async Task<CategoryEntity> DeleteCategoryAsync(int id)
+    public async Task<CategoryEntity> DeleteCategoryAsync(Guid id)
     {
         var categoryEntity = await ReturnCategoryAsync(id);
 
