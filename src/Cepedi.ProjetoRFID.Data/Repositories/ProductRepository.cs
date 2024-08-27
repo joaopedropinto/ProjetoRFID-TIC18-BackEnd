@@ -30,7 +30,7 @@ public class ProductRepository : IProductRepository
         return product;
     }
 
-    public async Task<ProductEntity> ReturnProductAsync(int id)
+    public async Task<ProductEntity> ReturnProductAsync(Guid id)
     {
         return await
             _context.Product.Where(e => e.Id == id).FirstOrDefaultAsync();
@@ -41,7 +41,7 @@ public class ProductRepository : IProductRepository
         return await _context.Set<ProductEntity>().ToListAsync();
     }
 
-    public async Task<ProductEntity> DeleteProductAsync(int id)
+    public async Task<ProductEntity> DeleteProductAsync(Guid id)
     {
         var productEntity = await ReturnProductAsync(id);
 

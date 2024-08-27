@@ -1,3 +1,3 @@
 namespace Cepedi.ProjetoRFID.Shared.Responses.RfidTag;
 
-public record DeleteRfidTagResponse(int Id, string Rfid);
+public record DeleteRfidTagResponse(Guid Id, string Rfid);

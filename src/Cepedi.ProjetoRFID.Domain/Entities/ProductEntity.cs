@@ -8,10 +8,10 @@ namespace Cepedi.ProjetoRFID.Domain.Entities;
 
 public class ProductEntity
 {
-    public int Id { get; set; }
-    public int IdCategory { get; set; }
+    public Guid Id { get; set; }
+    public Guid IdCategory { get; set; }
     public CategoryEntity? Category { get; set; }
-    public int IdSupplier { get; set; }
+    public Guid IdSupplier { get; set; }
     public SupplierEntity? Supplier { get; set; }
     public string? Name { get; set; }
     public string? RfidTag { get; set; }
@@ -26,7 +26,7 @@ public class ProductEntity
     public int Quantity { get; set; }
     public decimal Price { get; set; } = 0;
 
-    internal void Update(int idCategory, int idSupplier, string name, string description, decimal weight, DateTime manufacDate, DateTime dueDate,
+    internal void Update(Guid idCategory, Guid idSupplier, string name, string description, decimal weight, DateTime manufacDate, DateTime dueDate,
      string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price)
     {
         IdCategory = idCategory;

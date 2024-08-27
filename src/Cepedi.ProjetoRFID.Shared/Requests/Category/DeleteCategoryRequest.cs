@@ -6,5 +6,5 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.Category;
 
 public class DeleteCategoryRequest : IRequest<Result<DeleteCategoryResponse>>, IValida
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

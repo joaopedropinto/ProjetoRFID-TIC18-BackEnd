@@ -6,5 +6,5 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.Category;
 
 public class ReturnCategoryRequest : IRequest<Result<ReturnCategoryResponse>>, IValida
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

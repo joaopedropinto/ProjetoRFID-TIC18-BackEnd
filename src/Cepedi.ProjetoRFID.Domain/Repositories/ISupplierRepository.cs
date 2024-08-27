@@ -4,9 +4,9 @@ namespace Cepedi.ProjetoRFID.Domain.Repositories;
 public interface ISupplierRepository
 {
     Task<SupplierEntity> CreateSupplierAsync(SupplierEntity Name);
-    Task<SupplierEntity> ReturnSupplierAsync(int id);
+    Task<SupplierEntity> ReturnSupplierAsync(Guid id);
     Task<List<SupplierEntity>> ReturnAllSuppliersAsync();
     Task<SupplierEntity> UpdateSupplierAsync(SupplierEntity Name);
-    Task<ProductEntity> ReturnProductSupplierAsync(int id);
-    Task<SupplierEntity> DeleteSupplierAsync(int id);
+    Task<ProductEntity> ReturnProductSupplierAsync(Guid id);
+    Task<SupplierEntity> DeleteSupplierAsync(Guid id);
 }

@@ -3,7 +3,7 @@ namespace Cepedi.ProjetoRFID.Shared.Responses.Product;
 
 public record class GetProductsByRfidsResponse
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public string Nome { get; set; }
     public string RfidTag { get; set; }
     public string Descricao { get; set; }
@@ -17,7 +17,7 @@ public record class GetProductsByRfidsResponse
     public decimal Preco { get; set; }
 
 
-    public GetProductsByRfidsResponse(int id, string nome, string rfidTag, string descricao, decimal peso, DateTime dataFabricacao, DateTime dataValidade, string unidadeMedida, string tipoEmbalagem, string numeroLote, int quantidade, decimal preco)
+    public GetProductsByRfidsResponse(Guid id, string nome, string rfidTag, string descricao, decimal peso, DateTime dataFabricacao, DateTime dataValidade, string unidadeMedida, string tipoEmbalagem, string numeroLote, int quantidade, decimal preco)
     {
         Id = id;
         Nome = nome;

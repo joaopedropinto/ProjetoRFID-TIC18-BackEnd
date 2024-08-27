@@ -7,5 +7,5 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.Supplier;
 
 public class DeleteSupplierRequest : IRequest<Result<DeleteSupplierResponse>>, IValida
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

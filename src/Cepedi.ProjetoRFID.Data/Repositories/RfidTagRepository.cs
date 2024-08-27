@@ -19,7 +19,7 @@ public class RfidTagRepository : IRfidTagRepository
         return rfidTag;
     }
 
-    public async Task<RfidTagEntity> ReturnRfidTagAsync(int id)
+    public async Task<RfidTagEntity> ReturnRfidTagAsync(Guid id)
     {
         return await _context.RfidTag.FirstOrDefaultAsync(e => e.Id == id);
     }
@@ -36,7 +36,7 @@ public class RfidTagRepository : IRfidTagRepository
         return rfidTag;
     }
 
-    public async Task<RfidTagEntity> DeleteRfidTagAsync(int id)
+    public async Task<RfidTagEntity> DeleteRfidTagAsync(Guid id)
     {
         var rfidTag = await ReturnRfidTagAsync(id);
         if (rfidTag == null)

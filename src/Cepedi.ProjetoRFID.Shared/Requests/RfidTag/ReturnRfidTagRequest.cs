@@ -6,5 +6,5 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.RfidTag;
 
 public class ReturnRfidTagRequest : IRequest<Result<ReturnRfidTagResponse>>, IValida
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 }

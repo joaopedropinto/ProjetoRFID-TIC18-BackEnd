@@ -6,9 +6,9 @@ namespace Cepedi.ProjetoRFID.Shared.Requests.Product;
 
 public class UpdateProductRequest : IRequest<Result<UpdateProductResponse>>, IValida
 {
-    public int Id { get; set; }
-    public int IdCategory { get; set; }
-    public int IdSupplier { get; set; }
+    public Guid Id { get; set; }
+    public Guid IdCategory { get; set; }
+    public Guid IdSupplier { get; set; }
     public string? Name { get; set; }
     public string? Description { get; set; }
     public decimal Weight { get; set; }

@@ -8,12 +8,12 @@ public class CreateProductRequestValidator : AbstractValidator<CreateProductRequ
     public CreateProductRequestValidator()
     {
         RuleFor(Product => Product.IdCategory)
-            .NotNull().WithMessage("O Id da categoria é obrigatório.")
-            .GreaterThan(0).WithMessage("Id de categoria inválido.");
+            .NotEmpty().WithMessage("O Id da categoria é obrigatório.");
+        //.GreaterThan(0).WithMessage("Id de categoria inválido.");
 
         RuleFor(Product => Product.IdSupplier)
-            .NotNull().WithMessage("O Id do fornecedor é obrigatório.")
-            .GreaterThan(0).WithMessage("Id de fornecedor inválido.");
+            .NotEmpty().WithMessage("O Id do fornecedor é obrigatório.");
+            //.GreaterThan(0).WithMessage("Id de fornecedor inválido.");
 
         RuleFor(Product => Product.Name)
             .NotEmpty().WithMessage("O nome do produto deve ser informado")
