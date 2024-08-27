@@ -25,7 +25,7 @@ public class ReturnAllSuppliersRequestHandler
         var suppliers = await _supplierRepository.ReturnAllSuppliersAsync();
         if (suppliers == null)
         {
-            //return Result.Error<ReturnAllSuppliersResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<List<ReturnAllSuppliersResponse>>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.SupplierListEmpty));
         }
 
         var response = new List<ReturnAllSuppliersResponse>();

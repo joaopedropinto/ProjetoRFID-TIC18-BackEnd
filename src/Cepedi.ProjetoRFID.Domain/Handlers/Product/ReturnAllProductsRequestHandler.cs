@@ -25,7 +25,7 @@ public class ReturnAllProductsRequestHandler
         var products = await _productRepository.ReturnAllProductsAsync();
         if (products == null)
         {
-            //return Result.Error<ReturnAllCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<List<ReturnAllProductsResponse>>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.ProductListEmpty));
         }
 
         var response = new List<ReturnAllProductsResponse>();

@@ -25,7 +25,7 @@ public class DeleteProductRequestHandler
         var product = await _productRepository.ReturnProductAsync(request.Id);
         if (product == null)
         {
-            //return Result.Error<DeleteCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<DeleteProductResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdProductInvalid));
         }
 
         await _productRepository.DeleteProductAsync(product.Id);

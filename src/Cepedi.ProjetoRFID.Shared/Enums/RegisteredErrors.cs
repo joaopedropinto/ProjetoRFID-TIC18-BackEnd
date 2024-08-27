@@ -42,6 +42,11 @@ public class RegisteredErrors
         ErrorDescription = "Ocorreu um erro na gravação de Fornecedor. Por favor tente novamente",
         Tipo = TypeError.Error
     };
+    public static ErrorResult ErrorSavingReadout = new(){
+        ErrorTitle = "Ocorreu um erro na gravação",
+        ErrorDescription = "Ocorreu um erro na gravação de Leitura. Por favor tente novamente",
+        Tipo = TypeError.Error
+    };
     public static ErrorResult IdProductInvalid = new()
     {
         ErrorTitle = "Dado inválido",
@@ -58,6 +63,11 @@ public class RegisteredErrors
     {
         ErrorTitle = "Dado inválido",
         ErrorDescription = "O ID do fornecedor especificado não é válido",
+        Tipo = TypeError.Alert
+    };
+    public static ErrorResult IdReadoutInvalid = new(){
+        ErrorTitle = "Dado inválido",
+        ErrorDescription = "O ID da leitura especificada não é válido",
         Tipo = TypeError.Alert
     };
     public static ErrorResult ProductAlreadyExist = new()
@@ -80,6 +90,11 @@ public class RegisteredErrors
         ErrorDescription = "Esse fornecedor ja existe",
         Tipo = TypeError.Alert
     };
+    public static ErrorResult ReadoutAlreadyExist = new(){
+        ErrorTitle = "Dado inválido",
+        ErrorDescription = "Essa leitura ja existe",
+        Tipo = TypeError.Alert
+    };
     public static ErrorResult ProductListEmpty = new()
     {
         ErrorTitle = "Lista vazia",
@@ -98,6 +113,11 @@ public class RegisteredErrors
     {
         ErrorTitle = "Lista vazia",
         ErrorDescription = "A lista de fornecedores retornada está vazia",
+        Tipo = TypeError.Alert
+    };
+    public static ErrorResult ReadoutListEmpty = new(){
+        ErrorTitle = "Lista vazia",
+        ErrorDescription = "A lista de leituras retornada está vazia",
         Tipo = TypeError.Alert
     };
 }
