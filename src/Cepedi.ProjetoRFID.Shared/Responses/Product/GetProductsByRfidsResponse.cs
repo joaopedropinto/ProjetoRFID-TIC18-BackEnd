@@ -1,35 +1,30 @@
-namespace Cepedi.ProjetoRFID.Shared.Responses.Product;
-// var response = products.Select(p => new GetProductsByRfidsResponse(p.Id, p.Name, p.Description, p.Weight, p.ManufacDate, p.DueDate, p.UnitMeasurement, p.PackingType, p.BatchNumber, p.Quantity, p.Price)).ToList();
-
 public record class GetProductsByRfidsResponse
 {
-    public Guid Id { get; set; }
-    public string Nome { get; set; }
-    public string RfidTag { get; set; }
-    public string Descricao { get; set; }
-    public decimal Peso { get; set; }
-    public DateTime DataFabricacao { get; set; }
-    public DateTime DataValidade { get; set; }
-    public string UnidadeMedida { get; set; }
-    public string TipoEmbalagem { get; set; }
-    public string NumeroLote { get; set; }
-    public int Quantidade { get; set; }
-    public decimal Preco { get; set; }
-
-
-    public GetProductsByRfidsResponse(Guid id, string nome, string rfidTag, string descricao, decimal peso, DateTime dataFabricacao, DateTime dataValidade, string unidadeMedida, string tipoEmbalagem, string numeroLote, int quantidade, decimal preco)
+    public Guid Id { get; init; }
+    public string Name { get; init; }
+    public string RfidTag { get; init; }
+    public string Description { get; init; }
+    public decimal Weight { get; init; }
+    public DateTime? ManufacDate { get; init; }
+    public DateTime? DueDate { get; init; }
+    public string UnitMeasurement { get; init; }
+    public string PackingType { get; init; }
+    public string BatchNumber { get; init; }
+    public int Quantity { get; init; }
+    public decimal Price { get; init; }
+    public GetProductsByRfidsResponse(Guid id, string name, string rfidTag, string description, decimal weight, DateTime? manufacDate, DateTime? dueDate, string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price)
     {
         Id = id;
-        Nome = nome;
+        Name = name;
         RfidTag = rfidTag;
-        Descricao = descricao;
-        Peso = peso;
-        DataFabricacao = dataFabricacao;
-        DataValidade = dataValidade;
-        UnidadeMedida = unidadeMedida;
-        TipoEmbalagem = tipoEmbalagem;
-        NumeroLote = numeroLote;
-        Quantidade = quantidade;
-        Preco = preco;
+        Description = description;
+        Weight = weight;
+        ManufacDate = manufacDate;
+        DueDate = dueDate;
+        UnitMeasurement = unitMeasurement;
+        PackingType = packingType;
+        BatchNumber = batchNumber;
+        Quantity = quantity;
+        Price = price;
     }
 }

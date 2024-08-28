@@ -4,7 +4,7 @@ using OperationResult;
 
 namespace Cepedi.ProjetoRFID.Shared.Requests.Product;
 
-public class GetProductsByRfidsRequest : IRequest<Result<List<GetProductsByRfidsResponse>>>
+public class GetProductsByRfidsRequest : IRequest<Result<CombinedProductResponse>>
 {
     public List<string> Rfids { get; set; }
 
