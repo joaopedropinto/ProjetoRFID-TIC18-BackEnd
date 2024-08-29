@@ -51,11 +51,20 @@ public class ProductController : BaseController
         [FromRoute] DeleteProductRequest request) => await SendCommand(request);
 
     [HttpGet("get-products-by-rfids")]
-    [ProducesResponseType(typeof(List<GetProductsByRfidsResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(CombinedProductResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<List<GetProductsByRfidsResponse>>> GetProductsByRfidsAsync()
+    public async Task<ActionResult<CombinedProductResponse>> GetProductsByRfidsAsync()
     {
         var request = new GetProductsByRfidsRequest(new List<string>());
-        return await SendCommand(request);
+        var result = await _mediator.Send(request);
+
+        if (result.IsSuccess)
+        {
+            return Ok(result.Value);
+        }
+        else
+        {
+            return Ok(result.Value);
+        }
     }
 }
