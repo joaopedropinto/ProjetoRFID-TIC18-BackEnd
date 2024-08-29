@@ -1,6 +1,7 @@
 ﻿using Cepedi.ProjetoRFID.Domain.Repositories;
 using Cepedi.ProjetoRFID.Shared.Requests.Category;
 using Cepedi.ProjetoRFID.Shared.Responses.Category;
+using Cepedi.ProjetoRFID.Shared.Enums;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using OperationResult;
@@ -23,7 +24,7 @@ public class DeleteCategoryRequestHandler
         var category = await _categoryRepository.ReturnCategoryAsync(request.Id);
         if (category == null)
         {
-            //return Result.Error<DeleteCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<DeleteCategoryResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdCategoryInvalid));
         }
 
         await _categoryRepository.DeleteCategoryAsync(category.Id);

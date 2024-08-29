@@ -25,7 +25,7 @@ public class UpdateSupplierRequestHandler
         var supplier = await _supplierRepository.ReturnSupplierAsync(request.Id);
         if (supplier == null)
         {
-            //return Result.Error<UpdateSupplierResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<UpdateSupplierResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdSupplierInvalid));
         }
 
         supplier.Update(request.Name, request.Description, request.PhoneNumber);

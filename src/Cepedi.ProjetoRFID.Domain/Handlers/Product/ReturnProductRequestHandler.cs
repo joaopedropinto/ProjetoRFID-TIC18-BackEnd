@@ -25,7 +25,7 @@ public class ReturnProductRequestHandler
         var product = await _productRepository.ReturnProductAsync(request.Id);
         if (product == null)
         {
-            //return Result.Error<ReturnCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<ReturnProductResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdProductInvalid));
         }
 
         await _productRepository.ReturnProductAsync(product.Id);
@@ -44,7 +44,8 @@ public class ReturnProductRequestHandler
                                                 product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
-                                                product.Price
+                                                product.Price,
+                                                product.IdReadout
                                                 );
         return Result.Success(response);
     }

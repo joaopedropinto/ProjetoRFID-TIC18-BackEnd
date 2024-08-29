@@ -25,7 +25,7 @@ public class ReturnAllCategoriesRequestHandler
         var categories = await _categoryRepository.ReturnAllCategoriesAsync();
         if (categories == null)
         {
-            //return Result.Error<ReturnAllCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<List<ReturnAllCategoriesResponse>>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.CategoryListEmpty));
         }
 
         var response = new List<ReturnAllCategoriesResponse>();

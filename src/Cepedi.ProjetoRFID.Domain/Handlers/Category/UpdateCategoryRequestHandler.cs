@@ -25,7 +25,7 @@ public class UpdateCategoryRequestHandler
         var category = await _categoryRepository.ReturnCategoryAsync(request.Id);
         if (category == null)
         {
-            //return Result.Error<UpdateCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
+            return Result.Error<UpdateCategoryResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdCategoryInvalid));
         }
 
         category.Update(request.Name, request.Origin, request.Color);
