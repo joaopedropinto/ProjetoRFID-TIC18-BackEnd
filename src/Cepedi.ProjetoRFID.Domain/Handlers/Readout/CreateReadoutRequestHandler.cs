@@ -24,35 +24,56 @@ public class CreateReadoutRequestHandler
     }
     public async Task<Result<CreateReadoutResponse>> Handle(CreateReadoutRequest request, CancellationToken cancellationToken)
     {
-        var productIds = request.Products; 
-        var validProductIds = new List<Guid>();
+        var productTags = request.Tags;
+        var validTagsIds = new List<string>();
+        var IdList = new List<Guid>();
 
-        foreach (var productId in productIds)
+        var product = await _productRepository.GetProductsByRfidsAsync(productTags);
+
+        var foundRfidTags = product?.Select(p => p.RfidTag).ToHashSet() ?? new HashSet<string>();
+        var notFoundRfidTags = productTags.Except(foundRfidTags);
+
+        foreach (var productId in product)
         {
-            var product = await _productRepository.ReturnProductAsync(productId);
 
-            if (product == null)
-            {
-                return Result.Error<CreateReadoutResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdProductInvalid));
-            }
-
-            validProductIds.Add(productId);
+            // if (productId == null)
+            // {
+            //     validTagsIds.Add(productId.RfidTag);
+            //     return Result.Error<CreateReadoutResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdProductInvalid));
+            // }
+            IdList.Add(productId.Id);
+            validTagsIds.Add(productId.RfidTag);
+        }
+        foreach (var tag in notFoundRfidTags)
+        {
+            validTagsIds.Add(tag);
         }
 
-        if (validProductIds.Count == 0)
-        {
-            return Result.Error<CreateReadoutResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.ProductListEmpty));
-        }
+        // if (validTagsIds.Count == 0)
+        // {
+        //     return Result.Error<CreateReadoutResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.ProductListEmpty));
+        // }
 
         var readout = new ReadoutEntity
         {
             ReadoutDate = request.ReadoutDate,
-            Products = validProductIds
+            Tags = validTagsIds
         };
 
+        var response = new CreateReadoutResponse(readout.Id, readout.ReadoutDate, validTagsIds);
         await _readoutRepository.CreateReadoutAsync(readout);
 
-        var response = new CreateReadoutResponse(readout.Id, readout.ReadoutDate, validProductIds);
+        foreach (var idFound in IdList)
+        {
+            var productFound = await _productRepository.ReturnProductAsync(idFound);
+            if (productFound == null)
+            {
+                return Result.Error<CreateReadoutResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdProductInvalid));
+            }
+            productFound.IdReadout = readout.Id;
+            await _productRepository.UpdateProductAsync(productFound);
+        }
+
         return Result.Success(response);
     }
 }

@@ -11,8 +11,8 @@ public class ReadoutEntityTypeConfiguration : IEntityTypeConfiguration<ReadoutEn
         builder.ToTable("Readout");
         builder.HasKey(e => e.Id);
         builder.Property(e => e.ReadoutDate).IsRequired();
-        builder.Property(e => e.Products).IsRequired();
+        builder.Property(e => e.Tags).IsRequired();
 
-        builder.HasOne(e => e.Product).WithMany();
+        //builder.HasOne(e => e.Product).WithMany();
     }
 }

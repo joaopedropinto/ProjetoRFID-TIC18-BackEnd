@@ -1,4 +1,4 @@
-using Cepedi.ProjetoRFID.Domain.Entities;
+//using Cepedi.ProjetoRFID.Domain.Entities;
 namespace Cepedi.ProjetoRFID.Shared.Responses.Readout;
 
-public record ReturnReadoutResponse(Guid Id, DateTime ReadoutDate, List<Guid> Products);
+public record ReturnReadoutResponse(Guid Id, DateTime ReadoutDate, List<string> Tags);

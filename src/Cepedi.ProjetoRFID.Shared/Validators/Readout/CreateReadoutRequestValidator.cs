@@ -10,7 +10,7 @@ public class CreateReadoutRequestValidator : AbstractValidator<CreateReadoutRequ
         .NotNull().WithMessage("A data de realização da leitura deve ser informada")
         .Must(dataHora => dataHora != default(DateTime)).WithMessage("Data deve ser valida");
 
-        RuleFor(Readout => Readout.Products)
-        .NotNull().WithMessage("Os produtos devem ser informados");
+        RuleFor(Readout => Readout.Tags)
+        .NotNull().WithMessage("As Tags RFID devem ser informadas");
     }
 }

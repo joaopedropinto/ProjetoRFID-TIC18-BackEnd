@@ -44,7 +44,8 @@ public class ReturnAllProductsRequestHandler
                                                 product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
-                                                product.Price));
+                                                product.Price,
+                                                product.IdReadout));
 
         }
         return Result.Success(response);

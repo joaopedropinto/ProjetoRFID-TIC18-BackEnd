@@ -31,7 +31,7 @@ public class ReturnReadoutRequestHandler
 
         var response = new ReturnReadoutResponse(readout.Id,
                                                 readout.ReadoutDate,
-                                                readout.Products);
+                                                readout.Tags);
         return Result.Success(response);
     }
 }

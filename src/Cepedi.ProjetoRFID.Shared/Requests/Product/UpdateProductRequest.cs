@@ -19,5 +19,6 @@ public class UpdateProductRequest : IRequest<Result<UpdateProductResponse>>, IVa
     public string? BatchNumber { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; } = 0;
+    public Guid IdReadout { get; set; }
 
 }

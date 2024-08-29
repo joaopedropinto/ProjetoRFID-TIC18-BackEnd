@@ -35,7 +35,7 @@ public class ReturnAllReadoutsRequestHandler
         {
             response.Add(new ReturnAllReadoutsResponse(readout.Id,
                                                         readout.ReadoutDate,
-                                                        readout.Products));
+                                                        readout.Tags));
         }
         return Result.Success(response);
     }

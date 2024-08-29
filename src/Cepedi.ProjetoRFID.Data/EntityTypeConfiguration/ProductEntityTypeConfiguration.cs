@@ -27,6 +27,7 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<ProductEn
                 builder.Property(e => e.Price)
                         .IsRequired()
                         .HasColumnType("decimal(18,2)");
+                builder.Property(e => e.IdReadout).IsRequired();
 
                 builder.HasOne(e => e.Category)
                         .WithMany()

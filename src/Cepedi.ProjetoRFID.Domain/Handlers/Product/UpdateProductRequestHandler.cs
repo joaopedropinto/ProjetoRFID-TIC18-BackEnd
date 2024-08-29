@@ -29,7 +29,7 @@ public class UpdateProductRequestHandler
         }
 
         product.Update(request.IdCategory, request.IdSupplier, request.Name, request.Description, request.Weight, request.ManufacDate, request.DueDate,
-        request.UnitMeasurement, request.PackingType, request.BatchNumber, request.Quantity, request.Price);
+        request.UnitMeasurement, request.PackingType, request.BatchNumber, request.Quantity, request.Price, request.IdReadout);
 
         await _productRepository.UpdateProductAsync(product);
 
@@ -46,7 +46,8 @@ public class UpdateProductRequestHandler
                                                 product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
-                                                product.Price
+                                                product.Price,
+                                                product.IdReadout
                                                 );
         return Result.Success(response);
     }
