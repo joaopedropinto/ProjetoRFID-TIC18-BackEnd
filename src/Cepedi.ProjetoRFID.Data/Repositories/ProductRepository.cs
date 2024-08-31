@@ -63,4 +63,11 @@ public class ProductRepository : IProductRepository
             .Where(p => rfids.Contains(p.RfidTag))
             .ToListAsync();
     }
+
+    public async Task<ProductEntity> GetProductByRfidAsync(string rfid)
+    {
+        return await _context.Product
+            .Where(p => p.RfidTag == rfid)
+            .FirstOrDefaultAsync();
+    }
 }
