@@ -67,4 +67,22 @@ public class ProductController : BaseController
             return Ok(result.Value);
         }
     }
+
+    [HttpGet("get-product-by-rfid")]
+    [ProducesResponseType(typeof(GetProductByRfidResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<GetProductByRfidResponse>> GetProductByRfidAsync(
+        [FromQuery] GetProductByRfidRequest request)
+    {
+        var result = await _mediator.Send(request);
+
+        if (result.IsSuccess)
+        {
+            return Ok(result.Value);
+        }
+        else
+        {
+            return Ok(result.Value);
+        }
+    }
 }
