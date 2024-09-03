@@ -49,7 +49,10 @@ public class GetProductsByRfidsRequestHandler : IRequestHandler<GetProductsByRfi
                 p.PackingType,
                 p.BatchNumber,
                 p.Quantity,
-                p.Price)));
+                p.Price,
+                p.IdReadout,
+                p.IdCategory,
+                p.IdSupplier)));
         }
 
         var foundRfidTags = products?.Select(p => p.RfidTag).ToHashSet() ?? new HashSet<string>();
