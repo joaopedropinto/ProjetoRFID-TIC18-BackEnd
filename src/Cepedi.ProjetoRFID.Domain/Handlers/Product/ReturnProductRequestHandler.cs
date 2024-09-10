@@ -45,7 +45,11 @@ public class ReturnProductRequestHandler
                                                 product.BatchNumber,
                                                 product.Quantity,
                                                 product.Price,
-                                                product.IdReadout
+                                                product.IdReadout,
+                                                product.Height,
+                                                product.Width,
+                                                product.Length,
+                                                product.Volume
                                                 );
         return Result.Success(response);
     }

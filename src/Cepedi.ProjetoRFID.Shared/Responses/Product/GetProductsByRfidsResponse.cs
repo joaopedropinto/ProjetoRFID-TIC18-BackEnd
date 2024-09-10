@@ -15,8 +15,12 @@ public record class GetProductsByRfidsResponse
     public Guid IdReadout { get; init; }
     public Guid IdCategory { get; init; }
     public Guid IdSupplier { get; init; }
+    public decimal Height { get; init; }
+    public decimal Width { get; init; }
+    public decimal Length { get; init; }
+    public decimal Volume { get; init; }
 
-    public GetProductsByRfidsResponse(Guid id, string name, string rfidTag, string description, decimal weight, DateTime? manufacDate, DateTime? dueDate, string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price, Guid idReadout, Guid idCategory, Guid idSupplier)
+    public GetProductsByRfidsResponse(Guid id, string name, string rfidTag, string description, decimal weight, DateTime? manufacDate, DateTime? dueDate, string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price, Guid idReadout, Guid idCategory, Guid idSupplier, decimal height, decimal width, decimal length, decimal volume)
     {
         Id = id;
         Name = name;
@@ -33,5 +37,9 @@ public record class GetProductsByRfidsResponse
         IdReadout = idReadout;
         IdCategory = idCategory;
         IdSupplier = idSupplier;
+        Height = height;
+        Width = width;
+        Length = length;
+        Volume = volume;
     }
 }

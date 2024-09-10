@@ -44,7 +44,11 @@ public class DeleteProductRequestHandler
                                                 product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
-                                                product.Price
+                                                product.Price,
+                                                product.Height,
+                                                product.Width,
+                                                product.Length,
+                                                product.Volume
                                                 );
         return Result.Success(response);
     }
