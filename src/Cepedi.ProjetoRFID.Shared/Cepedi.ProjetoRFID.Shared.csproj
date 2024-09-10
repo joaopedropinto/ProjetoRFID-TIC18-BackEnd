@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Enums\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Validators\" />
-    <Folder Include="Requests\" />
-    <Folder Include="Responses\" />
+    <PackageReference Include="Divino.OperationResult" Version="4.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
+    <PackageReference Include="MediatR" Version="12.4.0" />
+    <PackageReference Include="Refit" Version="7.1.2" />
   </ItemGroup>
+
+  <!-- <ItemGroup>
+    <ProjectReference Include="..\Cepedi.ProjetoRFID.Domain\Cepedi.ProjetoRFID.Domain.csproj" />
+  </ItemGroup> -->
 
 </Project>
