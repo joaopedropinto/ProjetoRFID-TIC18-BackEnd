@@ -42,7 +42,11 @@ public class CreateProductRequestHandler
             PackingType = request.PackingType,
             BatchNumber = request.BatchNumber,
             Quantity = request.Quantity,
-            Price = request.Price
+            Price = request.Price,
+            Height = request.Height,
+            Width = request.Width,
+            Length = request.Length,
+            Volume = request.Height * request.Width * request.Length,
         };
 
         await _productRepository.CreateProductAsync(product);
@@ -61,7 +65,11 @@ public class CreateProductRequestHandler
                                                 product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
-                                                product.Price
+                                                product.Price,
+                                                product.Height,
+                                                product.Width,
+                                                product.Length,
+                                                product.Volume
                                                 );
         return Result.Success(response);
     }

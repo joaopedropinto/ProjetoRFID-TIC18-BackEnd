@@ -20,9 +20,13 @@ public class ProductEntity
     public string? BatchNumber { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; } = 0;
+    public decimal Height { get; set; } = 0;
+    public decimal Width { get; set; } = 0;
+    public decimal Length { get; set; } = 0;
+    public decimal Volume { get; set; } = 0;
 
     internal void Update(Guid idCategory, Guid idSupplier, string name, string description, decimal weight, DateTime manufacDate, DateTime dueDate,
-     string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price, Guid idReadout)
+     string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price, Guid idReadout, decimal height, decimal width, decimal length)
     {
         IdCategory = idCategory;
         IdSupplier = idSupplier;
@@ -37,6 +41,10 @@ public class ProductEntity
         Quantity = quantity;
         Price = price;
         IdReadout = idReadout;
+        Height = height;
+        Width = width;
+        Length = length;
+        Volume = height * width * length;
     }
 }
 
