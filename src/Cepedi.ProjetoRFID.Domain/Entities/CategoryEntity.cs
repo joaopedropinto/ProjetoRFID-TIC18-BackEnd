@@ -12,6 +12,7 @@ public class CategoryEntity
     public string? Name { get; set; }
     public string? Origin { get; set; }
     public string? Color { get; set; }
+    public bool Active { get; set; } = true;
 
     internal void Update(string name, string origin, string color)
     {
