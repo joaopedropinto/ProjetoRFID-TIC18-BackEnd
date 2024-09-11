@@ -19,5 +19,8 @@ public class CreateProductRequest : IRequest<Result<CreateProductResponse>>, IVa
     public string? BatchNumber { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; } = 0;
+    public decimal Height { get; set; } = 0;
+    public decimal Width { get; set; } = 0;
+    public decimal Length { get; set; } = 0;
 
 }
