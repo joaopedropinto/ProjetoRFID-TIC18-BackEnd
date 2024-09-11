@@ -41,6 +41,11 @@ public class CategoryRepository : ICategoryRepository
         return await _context.Set<CategoryEntity>().ToListAsync();
     }
 
+    public async Task<List<CategoryEntity>> ReturnAllActiveCategoriesAsync()
+    {
+        return await _context.Category.Where(e => e.Active).ToListAsync();
+    }
+
     public async Task<ProductEntity> ReturnProductCategoryAsync(Guid id)
     {
         return await
