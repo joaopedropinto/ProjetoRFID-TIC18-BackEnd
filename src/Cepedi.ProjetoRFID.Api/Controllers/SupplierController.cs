@@ -24,6 +24,12 @@ public class SupplierController : BaseController
     public async Task<ActionResult<List<ReturnAllSuppliersResponse>>> ReturnAllSuppliersAsync()
         => await SendCommand(new ReturnAllSuppliersRequest());
 
+    [HttpGet("active")]
+    [ProducesResponseType(typeof(List<ReturnAllActiveSuppliersResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<List<ReturnAllActiveSuppliersResponse>>>
+        ReturnAllActiveSuppliersAsync() => await SendCommand(new ReturnAllActiveSuppliersRequest());
+
     [HttpPost]
     [ProducesResponseType(typeof(CreateSupplierResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]

@@ -24,6 +24,12 @@ public class CategoryController : BaseController
     public async Task<ActionResult<List<ReturnAllCategoriesResponse>>> ReturnAllCategorysAsync()
         => await SendCommand(new ReturnAllCategoriesRequest());
 
+    [HttpGet("active")]
+    [ProducesResponseType(typeof(List<ReturnAllActiveCategoriesResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<List<ReturnAllActiveCategoriesResponse>>>
+        ReturnAllActiveCategoriesAsync() => await SendCommand(new ReturnAllActiveCategoriesRequest());
+
     [HttpPost]
     [ProducesResponseType(typeof(CreateCategoryResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
