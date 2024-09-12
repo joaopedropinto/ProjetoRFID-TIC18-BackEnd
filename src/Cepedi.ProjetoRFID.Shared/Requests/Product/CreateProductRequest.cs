@@ -8,6 +8,7 @@ public class CreateProductRequest : IRequest<Result<CreateProductResponse>>, IVa
 {
     public Guid IdCategory { get; set; }
     public Guid IdSupplier { get; set; }
+    public Guid IdPackaging { get; set; }
     public string? Name { get; set; }
     public string? RfidTag { get; set; }
     public string? Description { get; set; }
@@ -15,7 +16,6 @@ public class CreateProductRequest : IRequest<Result<CreateProductResponse>>, IVa
     public DateTime ManufacDate { get; set; }
     public DateTime DueDate { get; set; }
     public string? UnitMeasurement { get; set; }
-    public string? PackingType { get; set; }
     public string? BatchNumber { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; } = 0;

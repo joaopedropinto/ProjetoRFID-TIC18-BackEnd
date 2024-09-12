@@ -8,19 +8,19 @@ public record class GetProductsByRfidsResponse
     public DateTime? ManufacDate { get; init; }
     public DateTime? DueDate { get; init; }
     public string UnitMeasurement { get; init; }
-    public string PackingType { get; init; }
     public string BatchNumber { get; init; }
     public int Quantity { get; init; }
     public decimal Price { get; init; }
     public Guid IdReadout { get; init; }
     public Guid IdCategory { get; init; }
     public Guid IdSupplier { get; init; }
+    public Guid IdPackaging { get; set; }
     public decimal Height { get; init; }
     public decimal Width { get; init; }
     public decimal Length { get; init; }
     public decimal Volume { get; init; }
 
-    public GetProductsByRfidsResponse(Guid id, string name, string rfidTag, string description, decimal weight, DateTime? manufacDate, DateTime? dueDate, string unitMeasurement, string packingType, string batchNumber, int quantity, decimal price, Guid idReadout, Guid idCategory, Guid idSupplier, decimal height, decimal width, decimal length, decimal volume)
+    public GetProductsByRfidsResponse(Guid id, string name, string rfidTag, string description, decimal weight, DateTime? manufacDate, DateTime? dueDate, string unitMeasurement, string batchNumber, int quantity, decimal price, Guid idReadout, Guid idCategory, Guid idSupplier, Guid idPackaging, decimal height, decimal width, decimal length, decimal volume)
     {
         Id = id;
         Name = name;
@@ -30,13 +30,13 @@ public record class GetProductsByRfidsResponse
         ManufacDate = manufacDate;
         DueDate = dueDate;
         UnitMeasurement = unitMeasurement;
-        PackingType = packingType;
         BatchNumber = batchNumber;
         Quantity = quantity;
         Price = price;
         IdReadout = idReadout;
         IdCategory = idCategory;
         IdSupplier = idSupplier;
+        IdPackaging = idPackaging;
         Height = height;
         Width = width;
         Length = length;

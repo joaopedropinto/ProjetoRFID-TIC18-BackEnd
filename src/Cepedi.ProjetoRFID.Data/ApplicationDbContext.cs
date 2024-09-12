@@ -13,6 +13,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<SupplierEntity> Supplier { get; set; } = default!;
     public DbSet<RfidTagEntity> RfidTag { get; set; } = default!;
     public DbSet<ReadoutEntity> Readout { get; set; } = default!;
+    public DbSet<PackagingEntity> Packaging { get; set; } = default!;
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)

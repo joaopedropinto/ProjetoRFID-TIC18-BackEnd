@@ -29,6 +29,7 @@ namespace Cepedi.ProjetoRFID.Ioc
             services.AddScoped<IRfidTagRepository, RfidTagRepository>();
             services.AddScoped<ISupplierRepository, SupplierRepository>();
             services.AddScoped<IReadoutRepository, ReadoutRepository>();
+            services.AddScoped<IPackagingRepository, PackagingRepositiory>();
 
             services.AddHealthChecks().AddDbContextCheck<ApplicationDbContext>();
 

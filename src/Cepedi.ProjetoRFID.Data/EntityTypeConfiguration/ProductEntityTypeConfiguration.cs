@@ -19,7 +19,8 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<ProductEn
                 builder.Property(e => e.ManufacDate).IsRequired();
                 builder.Property(e => e.DueDate).IsRequired();
                 builder.Property(e => e.UnitMeasurement).IsRequired().HasMaxLength(20);
-                builder.Property(e => e.PackingType).IsRequired().HasMaxLength(100);
+                //builder.Property(e => e.PackingType).IsRequired().HasMaxLength(100);
+                builder.Property(e => e.IdPackaging).IsRequired();
                 builder.Property(e => e.BatchNumber).IsRequired().HasMaxLength(100);
                 builder.Property(e => e.Quantity).IsRequired();
                 builder.Property(e => e.Price).IsRequired().HasColumnType("decimal(18,2)");
@@ -39,6 +40,11 @@ public class ProductEntityTypeConfiguration : IEntityTypeConfiguration<ProductEn
                 builder.HasOne(e => e.Supplier)
                         .WithMany()
                         .HasForeignKey(e => e.IdSupplier)
+                        .IsRequired();
+
+                builder.HasOne(e => e.Packaging)
+                        .WithMany()
+                        .HasForeignKey(e => e.IdPackaging)
                         .IsRequired();
         }
 }
