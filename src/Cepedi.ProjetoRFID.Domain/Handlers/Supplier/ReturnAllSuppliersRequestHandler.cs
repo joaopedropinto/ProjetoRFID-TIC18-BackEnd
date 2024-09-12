@@ -34,7 +34,8 @@ public class ReturnAllSuppliersRequestHandler
             response.Add(new ReturnAllSuppliersResponse(supplier.Id,
                                                         supplier.Name,
                                                         supplier.Description,
-                                                        supplier.PhoneNumber));
+                                                        supplier.PhoneNumber,
+                                                        supplier.Active));
         }
         return Result.Success(response);
     }

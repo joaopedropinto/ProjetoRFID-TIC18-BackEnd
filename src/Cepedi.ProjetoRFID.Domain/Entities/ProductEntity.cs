@@ -25,6 +25,7 @@ public class ProductEntity
     public decimal Width { get; set; } = 0;
     public decimal Length { get; set; } = 0;
     public decimal Volume { get; set; } = 0;
+    public bool Active { get; set; } = true;
 
     internal void Update(Guid idCategory, Guid idSupplier, Guid idPackaging, string name, string description, decimal weight, DateTime manufacDate, DateTime dueDate,
      string unitMeasurement, string batchNumber, int quantity, decimal price, Guid idReadout, decimal height, decimal width, decimal length)

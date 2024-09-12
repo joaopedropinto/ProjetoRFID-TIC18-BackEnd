@@ -1,4 +1,4 @@
-﻿using Cepedi.ProjetoRFID.Domain.Entities;
+using Cepedi.ProjetoRFID.Domain.Entities;
 using Cepedi.ProjetoRFID.Domain.Repositories;
 using Cepedi.ProjetoRFID.Shared.Requests.Product;
 using Cepedi.ProjetoRFID.Shared.Responses.Product;
@@ -8,33 +8,32 @@ using Microsoft.Extensions.Logging;
 using OperationResult;
 
 namespace Cepedi.ProjetoRFID.Domain.Handlers.Product;
-public class ReturnAllProductsRequestHandler
-    : IRequestHandler<ReturnAllProductsRequest, Result<List<ReturnAllProductsResponse>>>
+public class ReturnAllActiveProductsRequestHandler
+    : IRequestHandler<ReturnAllActiveProductsRequest, Result<List<ReturnAllActiveProductsResponse>>>
 {
-    private readonly ILogger<ReturnAllProductsRequestHandler> _logger;
+    private readonly ILogger<ReturnAllActiveProductsRequestHandler> _logger;
     private readonly IProductRepository _productRepository;
 
-    public ReturnAllProductsRequestHandler(IProductRepository productRepository, ILogger<ReturnAllProductsRequestHandler> logger)
+    public ReturnAllActiveProductsRequestHandler(IProductRepository productRepository, ILogger<ReturnAllActiveProductsRequestHandler> logger)
     {
         _productRepository = productRepository;
         _logger = logger;
     }
 
-    public async Task<Result<List<ReturnAllProductsResponse>>> Handle(ReturnAllProductsRequest request, CancellationToken cancellationToken)
+    public async Task<Result<List<ReturnAllActiveProductsResponse>>> Handle(ReturnAllActiveProductsRequest request, CancellationToken cancellationToken)
     {
-        var products = await _productRepository.ReturnAllProductsAsync();
+        var products = await _productRepository.ReturnAllActiveProductsAsync();
         if (products == null)
         {
-            return Result.Error<List<ReturnAllProductsResponse>>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.ProductListEmpty));
+            return Result.Error<List<ReturnAllActiveProductsResponse>>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.ProductListEmpty));
         }
 
-        var response = new List<ReturnAllProductsResponse>();
+        var response = new List<ReturnAllActiveProductsResponse>();
         foreach (var product in products)
         {
-            response.Add(new ReturnAllProductsResponse(product.Id,
+            response.Add(new ReturnAllActiveProductsResponse(product.Id,
                                                 product.IdCategory,
                                                 product.IdSupplier,
-                                                product.IdPackaging,
                                                 product.Name,
                                                 product.RfidTag,
                                                 product.Description,
@@ -42,6 +41,7 @@ public class ReturnAllProductsRequestHandler
                                                 product.ManufacDate,
                                                 product.DueDate,
                                                 product.UnitMeasurement,
+                                                product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
                                                 product.Price,
@@ -49,8 +49,7 @@ public class ReturnAllProductsRequestHandler
                                                 product.Height,
                                                 product.Width,
                                                 product.Length,
-                                                product.Volume,
-                                                product.Active
+                                                product.Volume
                                                 ));
 
         }
