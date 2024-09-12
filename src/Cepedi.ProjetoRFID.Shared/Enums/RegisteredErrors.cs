@@ -70,6 +70,12 @@ public class RegisteredErrors
         ErrorDescription = "O ID da leitura especificada não é válido",
         Tipo = TypeError.Alert
     };
+    public static ErrorResult IdPackagingInvalid = new()
+    {
+        ErrorTitle = "Dado inválido",
+        ErrorDescription = "O ID da embalagem especificada não é válido",
+        Tipo = TypeError.Alert
+    };
     public static ErrorResult ProductAlreadyExist = new()
     {
         ErrorTitle = "Dado inválido",
@@ -118,6 +124,12 @@ public class RegisteredErrors
     public static ErrorResult ReadoutListEmpty = new(){
         ErrorTitle = "Lista vazia",
         ErrorDescription = "A lista de leituras retornada está vazia",
+        Tipo = TypeError.Alert
+    };
+    public static ErrorResult PackagingListEmpty = new()
+    {
+        ErrorTitle = "Lista vazia",
+        ErrorDescription = "A lista de embalagens retornada está vazia",
         Tipo = TypeError.Alert
     };
 }

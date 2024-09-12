@@ -28,15 +28,18 @@ public class UpdateProductRequestHandler
             //return Result.Error<UpdateCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
         }
 
-        product.Update(request.IdCategory, request.IdSupplier, request.Name, request.Description, request.Weight, request.ManufacDate, request.DueDate,
+
+        product.Update(request.IdCategory, request.IdSupplier, Guid IdPackaging, request.Name, request.Description, request.Weight, request.ManufacDate, request.DueDate,
         request.UnitMeasurement, request.PackingType, request.BatchNumber, request.Quantity, request.Price, request.IdReadout,
         request.Height, request.Width, request.Length);
+
 
         await _productRepository.UpdateProductAsync(product);
 
         var response = new UpdateProductResponse(product.Id,
                                                 product.IdCategory,
                                                 product.IdSupplier,
+                                                product.IdPackaging,
                                                 product.Name,
                                                 product.RfidTag,
                                                 product.Description,
@@ -44,7 +47,6 @@ public class UpdateProductRequestHandler
                                                 product.ManufacDate,
                                                 product.DueDate,
                                                 product.UnitMeasurement,
-                                                product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
                                                 product.Price,

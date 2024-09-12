@@ -63,6 +63,7 @@ public class ProductRepository : IProductRepository
     public async Task<List<ProductEntity>> GetProductsByRfidsAsync(List<string> rfids)
     {
         return await _context.Product
+            .Where(p => p.IsDeleted == false)
             .Where(p => rfids.Contains(p.RfidTag))
             .ToListAsync();
     }

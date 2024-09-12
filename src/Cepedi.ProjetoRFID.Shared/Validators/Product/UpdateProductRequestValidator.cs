@@ -44,10 +44,8 @@ public class UpdateProductRequestValidator : AbstractValidator<UpdateProductRequ
             .MinimumLength(3).WithMessage("Unidade de medida do produto deve ter no mínimo 3 caracteres")
             .MaximumLength(100).WithMessage("Unidade de medida do produto deve ter no máximo 100 caracteres");
 
-        RuleFor(Product => Product.PackingType)
-            .NotEmpty().WithMessage("O tipo de embalagem do produto deve ser informado")
-            .MinimumLength(3).WithMessage("Tipo de embalagem do produto deve ter no mínimo 3 caracteres")
-            .MaximumLength(100).WithMessage("Tipo de embalagem do produto deve ter no máximo 100 caracteres");
+        RuleFor(Product => Product.IdPackaging)
+            .NotEmpty().WithMessage("O id do tipo de embalagem do produto deve ser informado");
 
         RuleFor(Product => Product.BatchNumber)
             .NotEmpty().WithMessage("O número de lote do produto deve ser informado")
