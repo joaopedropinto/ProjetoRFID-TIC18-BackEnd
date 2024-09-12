@@ -14,6 +14,12 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
         private readonly IPackagingRepository _packagingRepository;
         private readonly ILogger<UpdatePackagingRequestHandler> _logger;
 
+        public UpdatePackagingRequestHandler(IPackagingRepository packagingRepository, ILogger<UpdatePackagingRequestHandler> logger)
+        {
+            _packagingRepository = packagingRepository;
+            _logger = logger;
+        }
+
         public async Task<Result<UpdatePackagingResponse>> Handle(UpdatePackagingRequest request, CancellationToken cancellationToken)
         {
             var packaging = await _packagingRepository.ReturnPackagingByIdAsync(request.Id);
