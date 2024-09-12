@@ -20,15 +20,22 @@ public class GetProductsByRfidsRequestHandler : IRequestHandler<GetProductsByRfi
         _logger = logger;
     }
 
+    private async Task<List<string>> GetRfidsFromApiAsync()
+    {
+        using (var httpClient = new HttpClient())
+        {
+            var response = await httpClient.PostAsync("http://172.16.10.243:5002/api/GetTagsRfid?antNum=1&ipPorta=172.16.10.50:8081&tempoLeitura=1000&readUser=false&potenciaPadrao=3000", null);
+            response.EnsureSuccessStatusCode();
+            var jsonContent = await response.Content.ReadAsStringAsync();
+            var readings = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(jsonContent);
+            var rfids = readings.Select(r => r["EpcValue"].ToString()).ToList();
+            return rfids;
+        }
+    }
+
     public async Task<Result<CombinedProductResponse>> Handle(GetProductsByRfidsRequest request, CancellationToken cancellationToken)
     {
-        var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        var projectRoot = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\..\..\"));
-        var filePath = Path.Combine(projectRoot, "Cepedi.ProjetoRFID.Data", "DataBase", "reading.json");
-
-        var jsonContent = await System.IO.File.ReadAllTextAsync(filePath);
-        var readings = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(jsonContent);
-        var rfids = readings.Select(r => r["rfid"].ToString()).ToList();
+        var rfids = await GetRfidsFromApiAsync();
 
         var products = await _productRepository.GetProductsByRfidsAsync(rfids);
 
