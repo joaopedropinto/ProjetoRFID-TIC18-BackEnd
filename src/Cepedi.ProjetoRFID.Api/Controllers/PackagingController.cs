@@ -40,7 +40,7 @@ namespace Cepedi.ProjetoRFID.Api.Controllers
                 => await SendCommand(request);
 
         [HttpPost]
-        [ProducesResponseType(typeof(CreateProductResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CreatePackagingResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<CreatePackagingResponse>> CreatePackagingAsync(
             [FromBody] CreatePackagingRequest request)
