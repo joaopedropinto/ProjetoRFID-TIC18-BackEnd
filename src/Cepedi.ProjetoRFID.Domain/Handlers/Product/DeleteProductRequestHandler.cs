@@ -28,6 +28,8 @@ public class DeleteProductRequestHandler
             return Result.Error<DeleteProductResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdProductInvalid));
         }
 
+        product.Delete();
+
         await _productRepository.DeleteProductAsync(product.Id);
 
 

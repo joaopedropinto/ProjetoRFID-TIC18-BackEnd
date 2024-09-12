@@ -35,7 +35,7 @@ public class ReturnAllCategoriesRequestHandler
                                                         category.Name,
                                                         category.Origin,
                                                         category.Color,
-                                                        category.Active));
+                                                        category.IsDeleted));
         }
         return Result.Success(response);
     }

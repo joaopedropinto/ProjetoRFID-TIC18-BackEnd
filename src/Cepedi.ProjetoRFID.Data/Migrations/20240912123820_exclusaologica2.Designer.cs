@@ -4,6 +4,7 @@ using Cepedi.ProjetoRFID.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cepedi.ProjetoRFID.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240912123820_exclusaologica2")]
+    partial class exclusaologica2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,25 +56,6 @@ namespace Cepedi.ProjetoRFID.Data.Migrations
                     b.ToTable("Category", (string)null);
                 });
 
-            modelBuilder.Entity("Cepedi.ProjetoRFID.Domain.Entities.PackagingEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Packaging", (string)null);
-                });
-
             modelBuilder.Entity("Cepedi.ProjetoRFID.Domain.Entities.ProductEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -97,9 +81,6 @@ namespace Cepedi.ProjetoRFID.Data.Migrations
                     b.Property<Guid>("IdCategory")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("IdPackaging")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("IdReadout")
                         .HasColumnType("uniqueidentifier");
 
@@ -118,6 +99,11 @@ namespace Cepedi.ProjetoRFID.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PackingType")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -149,8 +135,6 @@ namespace Cepedi.ProjetoRFID.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdCategory");
-
-                    b.HasIndex("IdPackaging");
 
                     b.HasIndex("IdSupplier");
 
@@ -229,12 +213,6 @@ namespace Cepedi.ProjetoRFID.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Cepedi.ProjetoRFID.Domain.Entities.PackagingEntity", "Packaging")
-                        .WithMany()
-                        .HasForeignKey("IdPackaging")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Cepedi.ProjetoRFID.Domain.Entities.SupplierEntity", "Supplier")
                         .WithMany()
                         .HasForeignKey("IdSupplier")
@@ -242,8 +220,6 @@ namespace Cepedi.ProjetoRFID.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-
-                    b.Navigation("Packaging");
 
                     b.Navigation("Supplier");
                 });

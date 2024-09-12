@@ -43,7 +43,7 @@ public class ProductRepository : IProductRepository
 
     public async Task<List<ProductEntity>> ReturnAllActiveProductsAsync()
     {
-        return await _context.Product.Where(e => e.Active).ToListAsync();
+        return await _context.Product.Where(e => e.IsDeleted == false).ToListAsync();
     }
 
     public async Task<ProductEntity> DeleteProductAsync(Guid id)
@@ -54,8 +54,6 @@ public class ProductRepository : IProductRepository
         {
             return null;
         }
-
-        _context.Product.Remove(productEntity);
 
         await _context.SaveChangesAsync();
 
