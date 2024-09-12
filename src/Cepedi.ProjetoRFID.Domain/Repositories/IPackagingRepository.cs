@@ -8,6 +8,7 @@ namespace Cepedi.ProjetoRFID.Domain.Repositories
         Task<List<PackagingEntity>> ReturnAllPackagesAsync();
         Task<List<PackagingEntity>> ReturnAllActivePackagesAsync();
         Task<PackagingEntity> ReturnPackagingByIdAsync(Guid id);
+        Task<PackagingEntity> ReturnActivePackagingByIdAsync(Guid id);
         Task<PackagingEntity> UpdatePackagingAsync(PackagingEntity entity);
         Task<PackagingEntity> DeletePackagingAsync(Guid id);
     }

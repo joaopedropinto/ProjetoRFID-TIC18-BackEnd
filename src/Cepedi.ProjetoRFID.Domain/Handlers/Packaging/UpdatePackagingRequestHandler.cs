@@ -22,7 +22,7 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
 
         public async Task<Result<UpdatePackagingResponse>> Handle(UpdatePackagingRequest request, CancellationToken cancellationToken)
         {
-            var packaging = await _packagingRepository.ReturnPackagingByIdAsync(request.Id);
+            var packaging = await _packagingRepository.ReturnActivePackagingByIdAsync(request.Id);
 
             if(packaging == null)
             {

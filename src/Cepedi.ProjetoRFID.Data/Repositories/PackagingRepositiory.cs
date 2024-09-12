@@ -45,6 +45,9 @@ namespace Cepedi.ProjetoRFID.Data.Repositories
         public async Task<PackagingEntity> ReturnPackagingByIdAsync(Guid id) 
             => await _context.Packaging.Where(p => p.Id == id).FirstOrDefaultAsync();
 
+        public async Task<PackagingEntity> ReturnActivePackagingByIdAsync(Guid id)
+            => await _context.Packaging.Where(p => p.Id == id && p.IsActive).FirstOrDefaultAsync();
+
         public async Task<PackagingEntity> UpdatePackagingAsync(PackagingEntity packaging)
         {
             _context.Update(packaging);
