@@ -11,6 +11,12 @@ namespace Cepedi.ProjetoRFID.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(name: "Readout");
+            migrationBuilder.DropTable(name: "RfidTag");
+            migrationBuilder.DropTable(name: "Product");
+            migrationBuilder.DropTable(name: "Supplier");
+            migrationBuilder.DropTable(name: "Category");
+            
             migrationBuilder.CreateTable(
                 name: "Category",
                 columns: table => new
