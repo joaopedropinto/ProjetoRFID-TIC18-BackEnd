@@ -27,8 +27,9 @@ public class DeleteSupplierRequestHandler
             return Result.Error<DeleteSupplierResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdSupplierInvalid));
         }
 
-        await _supplierRepository.DeleteSupplierAsync(supplier.Id);
+        supplier.Delete();
 
+        await _supplierRepository.DeleteSupplierAsync(supplier.Id);
 
         var response = new DeleteSupplierResponse(supplier.Id,
                                                 supplier.Name,

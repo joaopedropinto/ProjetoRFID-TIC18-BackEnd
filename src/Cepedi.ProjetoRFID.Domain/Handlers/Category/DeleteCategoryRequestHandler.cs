@@ -27,6 +27,8 @@ public class DeleteCategoryRequestHandler
             return Result.Error<DeleteCategoryResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdCategoryInvalid));
         }
 
+        category.Delete();
+
         await _categoryRepository.DeleteCategoryAsync(category.Id);
 
 
