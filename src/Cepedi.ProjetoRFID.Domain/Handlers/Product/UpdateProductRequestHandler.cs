@@ -30,7 +30,7 @@ public class UpdateProductRequestHandler
 
         product.Update(request.IdCategory, request.IdSupplier, request.Name, request.Description, request.Weight, request.ManufacDate, request.DueDate,
         request.UnitMeasurement, request.PackingType, request.BatchNumber, request.Quantity, request.Price, request.IdReadout,
-        request.Heigth, request.Width, request.Length);
+        request.Height, request.Width, request.Length);
 
         await _productRepository.UpdateProductAsync(product);
 
