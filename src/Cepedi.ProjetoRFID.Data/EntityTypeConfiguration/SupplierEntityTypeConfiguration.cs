@@ -13,6 +13,7 @@ public class SupplierEntityTypeConfiguration : IEntityTypeConfiguration<Supplier
         builder.Property(e => e.Name).IsRequired().HasMaxLength(100);
         builder.Property(e => e.Description).IsRequired().HasMaxLength(100);
         builder.Property(e => e.PhoneNumber).IsRequired().HasMaxLength(11);
-        builder.Property(e => e.Active).IsRequired().HasDefaultValue(true);
+
+        builder.Property(e => e.IsDeleted).IsRequired().HasDefaultValue(false);
     }
 }

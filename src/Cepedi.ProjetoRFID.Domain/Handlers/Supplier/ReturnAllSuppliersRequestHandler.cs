@@ -35,7 +35,7 @@ public class ReturnAllSuppliersRequestHandler
                                                         supplier.Name,
                                                         supplier.Description,
                                                         supplier.PhoneNumber,
-                                                        supplier.Active));
+                                                        supplier.IsDeleted));
         }
         return Result.Success(response);
     }

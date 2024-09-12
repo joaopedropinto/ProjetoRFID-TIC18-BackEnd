@@ -43,7 +43,7 @@ public class CategoryRepository : ICategoryRepository
 
     public async Task<List<CategoryEntity>> ReturnAllActiveCategoriesAsync()
     {
-        return await _context.Category.Where(e => e.Active).ToListAsync();
+        return await _context.Category.Where(e => e.IsDeleted == false).ToListAsync();
     }
 
     public async Task<ProductEntity> ReturnProductCategoryAsync(Guid id)
@@ -60,8 +60,6 @@ public class CategoryRepository : ICategoryRepository
         {
             return null;
         }
-
-        _context.Category.Remove(categoryEntity);
 
         await _context.SaveChangesAsync();
 
