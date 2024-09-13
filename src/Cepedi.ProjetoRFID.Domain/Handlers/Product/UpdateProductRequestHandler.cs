@@ -29,32 +29,46 @@ public class UpdateProductRequestHandler
         }
 
 
-        product.Update(request.IdCategory, request.IdSupplier, Guid IdPackaging, request.Name, request.Description, request.Weight, request.ManufacDate, request.DueDate,
-        request.UnitMeasurement, request.PackingType, request.BatchNumber, request.Quantity, request.Price, request.IdReadout,
-        request.Height, request.Width, request.Length);
+        product.Update(request.IdCategory,
+                        request.IdSupplier,
+                        request.IdPackaging,
+                        request.Name,
+                        request.Description,
+                        request.Weight,
+                        request.ManufacDate,
+                        request.DueDate,
+                        request.UnitMeasurement,
+                        request.BatchNumber,
+                        request.Quantity,
+                        request.Price,
+                        request.IdReadout,
+                        request.Height,
+                        request.Width,
+                        request.Length);
 
 
         await _productRepository.UpdateProductAsync(product);
 
-        var response = new UpdateProductResponse(product.Id,
-                                                product.IdCategory,
-                                                product.IdSupplier,
-                                                product.IdPackaging,
-                                                product.Name,
-                                                product.RfidTag,
-                                                product.Description,
-                                                product.Weight,
-                                                product.ManufacDate,
-                                                product.DueDate,
-                                                product.UnitMeasurement,
-                                                product.BatchNumber,
-                                                product.Quantity,
-                                                product.Price,
-                                                product.IdReadout,
-                                                product.Height,
-                                                product.Width,
-                                                product.Length
-                                                );
+        var response = new UpdateProductResponse(
+            product.Id,
+            product.IdCategory,
+            product.IdSupplier,
+            product.IdPackaging,
+            product.Name,
+            product.RfidTag,
+            product.Description,
+            product.Weight,
+            product.ManufacDate,
+            product.DueDate,
+            product.UnitMeasurement,
+            product.BatchNumber,
+            product.Quantity,
+            product.Price,
+            product.IdReadout,
+            product.Height,
+            product.Width,
+            product.Length
+        );
         return Result.Success(response);
     }
 }
