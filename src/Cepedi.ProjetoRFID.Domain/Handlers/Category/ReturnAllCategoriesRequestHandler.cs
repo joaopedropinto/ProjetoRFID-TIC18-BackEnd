@@ -34,7 +34,8 @@ public class ReturnAllCategoriesRequestHandler
             response.Add(new ReturnAllCategoriesResponse(category.Id,
                                                         category.Name,
                                                         category.Origin,
-                                                        category.Color));
+                                                        category.Color,
+                                                        category.IsDeleted));
         }
         return Result.Success(response);
     }

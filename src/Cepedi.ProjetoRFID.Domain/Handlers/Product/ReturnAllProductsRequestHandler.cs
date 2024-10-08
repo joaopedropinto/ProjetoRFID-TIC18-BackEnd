@@ -34,6 +34,7 @@ public class ReturnAllProductsRequestHandler
             response.Add(new ReturnAllProductsResponse(product.Id,
                                                 product.IdCategory,
                                                 product.IdSupplier,
+                                                product.IdPackaging,
                                                 product.Name,
                                                 product.RfidTag,
                                                 product.Description,
@@ -41,11 +42,16 @@ public class ReturnAllProductsRequestHandler
                                                 product.ManufacDate,
                                                 product.DueDate,
                                                 product.UnitMeasurement,
-                                                product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
                                                 product.Price,
-                                                product.IdReadout));
+                                                product.IdReadout,
+                                                product.Height,
+                                                product.Width,
+                                                product.Length,
+                                                product.Volume,
+                                                product.IsDeleted
+                                                ));
 
         }
         return Result.Success(response);

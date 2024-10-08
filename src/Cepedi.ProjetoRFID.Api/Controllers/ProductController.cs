@@ -24,6 +24,12 @@ public class ProductController : BaseController
     public async Task<ActionResult<List<ReturnAllProductsResponse>>> ReturnAllProductsAsync()
         => await SendCommand(new ReturnAllProductsRequest());
 
+    [HttpGet("active")]
+    [ProducesResponseType(typeof(List<ReturnAllActiveProductsResponse>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<List<ReturnAllActiveProductsResponse>>>
+        ReturnAllActiveProductsAsync() => await SendCommand(new ReturnAllActiveProductsRequest());
+
     [HttpPost]
     [ProducesResponseType(typeof(CreateProductResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]

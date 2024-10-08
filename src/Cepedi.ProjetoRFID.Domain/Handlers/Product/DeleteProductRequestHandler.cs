@@ -28,12 +28,15 @@ public class DeleteProductRequestHandler
             return Result.Error<DeleteProductResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.IdProductInvalid));
         }
 
+        product.Delete();
+
         await _productRepository.DeleteProductAsync(product.Id);
 
 
         var response = new DeleteProductResponse(product.Id,
                                                 product.IdCategory,
                                                 product.IdSupplier,
+                                                product.IdPackaging,
                                                 product.Name,
                                                 product.RfidTag,
                                                 product.Description,
@@ -41,10 +44,13 @@ public class DeleteProductRequestHandler
                                                 product.ManufacDate,
                                                 product.DueDate,
                                                 product.UnitMeasurement,
-                                                product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
-                                                product.Price
+                                                product.Price,
+                                                product.Height,
+                                                product.Width,
+                                                product.Length,
+                                                product.Volume
                                                 );
         return Result.Success(response);
     }

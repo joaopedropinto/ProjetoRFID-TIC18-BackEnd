@@ -32,6 +32,7 @@ public class GetProductByRfidRequestHandler : IRequestHandler<GetProductByRfidRe
         var response = new GetProductByRfidResponse(product.Id,
                                                     product.IdCategory,
                                                     product.IdSupplier,
+                                                    product.IdPackaging,
                                                     product.Name,
                                                     product.RfidTag,
                                                     product.Description,
@@ -39,11 +40,14 @@ public class GetProductByRfidRequestHandler : IRequestHandler<GetProductByRfidRe
                                                     product.ManufacDate,
                                                     product.DueDate,
                                                     product.UnitMeasurement,
-                                                    product.PackingType,
                                                     product.BatchNumber,
                                                     product.Quantity,
                                                     product.Price,
-                                                    product.IdReadout
+                                                    product.IdReadout,
+                                                    product.Height,
+                                                    product.Width,
+                                                    product.Length,
+                                                    product.Volume
                                                     );
         return Result.Success(response);
     }

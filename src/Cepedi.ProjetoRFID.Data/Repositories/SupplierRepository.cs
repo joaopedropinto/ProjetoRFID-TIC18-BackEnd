@@ -41,6 +41,11 @@ public class SupplierRepository : ISupplierRepository
         return await _context.Set<SupplierEntity>().ToListAsync();
     }
 
+    public async Task<List<SupplierEntity>> ReturnAllActiveSuppliersAsync()
+    {
+        return await _context.Supplier.Where(e => e.IsDeleted == false).ToListAsync();
+    }
+
     public async Task<ProductEntity> ReturnProductSupplierAsync(Guid id)
     {
         return await
@@ -54,8 +59,6 @@ public class SupplierRepository : ISupplierRepository
         {
             return null;
         }
-
-        _context.Supplier.Remove(supplierEntity);
 
         await _context.SaveChangesAsync();
 

@@ -32,6 +32,7 @@ public class CreateProductRequestHandler
         {
             IdCategory = request.IdCategory,
             IdSupplier = request.IdSupplier,
+            IdPackaging = request.IdPackaging,
             Name = request.Name,
             RfidTag = request.RfidTag,
             Description = request.Description,
@@ -39,10 +40,13 @@ public class CreateProductRequestHandler
             ManufacDate = request.ManufacDate,
             DueDate = request.DueDate,
             UnitMeasurement = request.UnitMeasurement,
-            PackingType = request.PackingType,
             BatchNumber = request.BatchNumber,
             Quantity = request.Quantity,
-            Price = request.Price
+            Price = request.Price,
+            Height = request.Height,
+            Width = request.Width,
+            Length = request.Length,
+            Volume = request.Height * request.Width * request.Length,
         };
 
         await _productRepository.CreateProductAsync(product);
@@ -51,6 +55,7 @@ public class CreateProductRequestHandler
         var response = new CreateProductResponse(product.Id,
                                                 product.IdCategory,
                                                 product.IdSupplier,
+                                                product.IdPackaging,
                                                 product.Name,
                                                 product.RfidTag,
                                                 product.Description,
@@ -58,10 +63,13 @@ public class CreateProductRequestHandler
                                                 product.ManufacDate,
                                                 product.DueDate,
                                                 product.UnitMeasurement,
-                                                product.PackingType,
                                                 product.BatchNumber,
                                                 product.Quantity,
-                                                product.Price
+                                                product.Price,
+                                                product.Height,
+                                                product.Width,
+                                                product.Length,
+                                                product.Volume
                                                 );
         return Result.Success(response);
     }

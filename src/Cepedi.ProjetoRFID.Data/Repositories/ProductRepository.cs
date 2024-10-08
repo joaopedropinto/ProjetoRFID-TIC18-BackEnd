@@ -41,6 +41,11 @@ public class ProductRepository : IProductRepository
         return await _context.Set<ProductEntity>().ToListAsync();
     }
 
+    public async Task<List<ProductEntity>> ReturnAllActiveProductsAsync()
+    {
+        return await _context.Product.Where(e => e.IsDeleted == false).ToListAsync();
+    }
+
     public async Task<ProductEntity> DeleteProductAsync(Guid id)
     {
         var productEntity = await ReturnProductAsync(id);
@@ -50,8 +55,6 @@ public class ProductRepository : IProductRepository
             return null;
         }
 
-        _context.Product.Remove(productEntity);
-
         await _context.SaveChangesAsync();
 
         return productEntity;
@@ -60,6 +63,7 @@ public class ProductRepository : IProductRepository
     public async Task<List<ProductEntity>> GetProductsByRfidsAsync(List<string> rfids)
     {
         return await _context.Product
+            .Where(p => p.IsDeleted == false)
             .Where(p => rfids.Contains(p.RfidTag))
             .ToListAsync();
     }
