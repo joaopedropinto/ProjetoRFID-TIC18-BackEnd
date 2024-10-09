@@ -9,6 +9,10 @@ using Cepedi.ProjetoRFID.Shared;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Minio;
+using System.Net;
+using Cepedi.ProjetoRFID.Domain.Services;
+using Cepedi.ProjetoRFID.Data.Services;
 
 namespace Cepedi.ProjetoRFID.Ioc
 {
@@ -23,6 +27,10 @@ namespace Cepedi.ProjetoRFID.Ioc
             cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 
             ConfigurarFluentValidation(services);
+
+            ConfigureMinio(services, configuration);
+
+            services.AddScoped<IMinioService, MinioService>();
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
@@ -61,6 +69,21 @@ namespace Cepedi.ProjetoRFID.Ioc
             });
 
             services.AddScoped<ApplicationDbContextInitialiser>();
+        }
+
+        private static void ConfigureMinio(IServiceCollection services, IConfiguration configuration)
+        {
+            var endpoint = configuration["MinIO:Endpoint"];
+            var accesskey = configuration["MinIO:AccessKey"];
+            var secretkey = configuration["MinIO:SecretKey"];
+
+            services.AddScoped(sp =>
+            {
+                return new MinioClient()
+                    .WithEndpoint(endpoint)
+                    .WithCredentials(accesskey, secretkey)
+                    .Build();
+            });
         }
 
     }
