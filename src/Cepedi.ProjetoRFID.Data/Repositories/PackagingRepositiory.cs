@@ -40,13 +40,13 @@ namespace Cepedi.ProjetoRFID.Data.Repositories
             => await _context.Set<PackagingEntity>().ToListAsync();
 
         public async Task<List<PackagingEntity>> ReturnAllActivePackagesAsync()
-            => await _context.Set<PackagingEntity>().Where(p => p.IsActive).ToListAsync();
+            => await _context.Set<PackagingEntity>().Where(p => !p.IsDeleted).ToListAsync();
 
         public async Task<PackagingEntity> ReturnPackagingByIdAsync(Guid id) 
             => await _context.Packaging.Where(p => p.Id == id).FirstOrDefaultAsync();
 
         public async Task<PackagingEntity> ReturnActivePackagingByIdAsync(Guid id)
-            => await _context.Packaging.Where(p => p.Id == id && p.IsActive).FirstOrDefaultAsync();
+            => await _context.Packaging.Where(p => p.Id == id && !p.IsDeleted).FirstOrDefaultAsync();
 
         public async Task<PackagingEntity> UpdatePackagingAsync(PackagingEntity packaging)
         {

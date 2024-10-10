@@ -33,7 +33,7 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
 
             await _packagingRepository.UpdatePackagingAsync(packaging);
 
-            return Result.Success(new UpdatePackagingResponse(packaging.Id, packaging.Name, packaging.IsActive));
+            return Result.Success(new UpdatePackagingResponse(packaging.Id, packaging.Name, packaging.IsDeleted));
         }
     }
 }

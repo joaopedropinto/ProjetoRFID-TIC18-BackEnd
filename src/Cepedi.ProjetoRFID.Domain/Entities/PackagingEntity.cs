@@ -10,7 +10,7 @@ namespace Cepedi.ProjetoRFID.Domain.Entities
     {
         public Guid Id { get; set; }
         public string? Name { get; set; }
-        public bool IsActive { get; set; } = true;
+        public bool IsDeleted { get; set; } = false;
 
         public void Update(string name)
         {
@@ -19,7 +19,7 @@ namespace Cepedi.ProjetoRFID.Domain.Entities
 
         public void Delete()
         {
-            IsActive = false;
+            IsDeleted = true;
         }
     }
 }
