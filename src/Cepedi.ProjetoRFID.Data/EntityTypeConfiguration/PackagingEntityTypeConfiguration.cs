@@ -11,7 +11,8 @@ namespace Cepedi.ProjetoRFID.Data.EntityTypeConfiguration
             builder.ToTable("Packaging");
             builder.HasKey(packaging => packaging.Id);
             builder.Property(packaging => packaging.Name).IsRequired().HasMaxLength(100);
-            builder.Property(packaging => packaging.IsActive).IsRequired();
+            
+            builder.Property(packaging => packaging.IsDeleted).IsRequired().HasDefaultValue(false);
         }
     }
 }

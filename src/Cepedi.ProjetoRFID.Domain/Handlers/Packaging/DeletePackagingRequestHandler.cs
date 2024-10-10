@@ -31,7 +31,7 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
 
             await _packagingRepository.DeletePackagingAsync(request.PackagingId);
 
-            return Result.Success(new DeletePackagingResponse(packaging.Id, packaging.Name, packaging.IsActive));
+            return Result.Success(new DeletePackagingResponse(packaging.Id, packaging.Name, packaging.IsDeleted));
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
 
             await _packagingRepository.CreatePackagingAsync(packaging);
 
-            var response = new CreatePackagingResponse(packaging.Id, packaging.Name, packaging.IsActive);
+            var response = new CreatePackagingResponse(packaging.Id, packaging.Name, packaging.IsDeleted);
 
             return Result.Success(response);
         }

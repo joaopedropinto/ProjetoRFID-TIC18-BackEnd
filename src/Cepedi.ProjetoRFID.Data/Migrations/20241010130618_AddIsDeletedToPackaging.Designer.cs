@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cepedi.ProjetoRFID.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240914134948_RecriandoTabelaEmbalagem")]
-    partial class RecriandoTabelaEmbalagem
+    [Migration("20241010130618_AddIsDeletedToPackaging")]
+    partial class AddIsDeletedToPackaging
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

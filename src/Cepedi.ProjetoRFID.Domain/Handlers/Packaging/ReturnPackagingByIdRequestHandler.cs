@@ -26,7 +26,7 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
 
             return packaging is null
                 ? Result.Error<ReturnPackagingResponse>(new ExceptionApplication(RegisteredErrors.IdPackagingInvalid))
-                : Result.Success(new ReturnPackagingResponse(packaging.Id, packaging.Name, packaging.IsActive));
+                : Result.Success(new ReturnPackagingResponse(packaging.Id, packaging.Name, packaging.IsDeleted));
         }
     }
 }
