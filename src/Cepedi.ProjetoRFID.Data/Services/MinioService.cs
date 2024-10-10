@@ -28,13 +28,14 @@ namespace Cepedi.ProjetoRFID.Data.Services
 		{
 			var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(imageBase64, "");
 			var imageBytes = Convert.FromBase64String(data);
-			var imageUrl = "";
+
+			var objectName = "";
 
 			using(var stream = new MemoryStream(imageBytes))
 			{
 				var bucketName = await EnsureBucketExistsAsync("rfid-product-images");
 
-				var objectName = $"{Guid.NewGuid()}";
+				objectName = $"{Guid.NewGuid()}";
 
 				var args = new PutObjectArgs()
 							.WithBucket(bucketName)
@@ -45,10 +46,9 @@ namespace Cepedi.ProjetoRFID.Data.Services
 
 				await _minioclient.PutObjectAsync(args);
 
-				imageUrl = $"{bucketName}/{objectName}";
 			}
 
-			return imageUrl;
+			return objectName;
 		}
 
 		public async Task<string?> GetObjectUrlAsync(string bucketName, string objectName)

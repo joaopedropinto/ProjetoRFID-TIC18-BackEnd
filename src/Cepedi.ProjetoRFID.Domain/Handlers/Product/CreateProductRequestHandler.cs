@@ -28,11 +28,11 @@ public class CreateProductRequestHandler
 
 	public async Task<Result<CreateProductResponse>> Handle(CreateProductRequest request, CancellationToken cancellationToken)
     {
-        string? imageUrl = null;
+        string? imageObjectName = null;
 
         if (!string.IsNullOrEmpty(request.ImageBase64))
         {
-            imageUrl = await _minioService.UploadImageAsync(request.ImageBase64);
+            imageObjectName = await _minioService.UploadImageAsync(request.ImageBase64);
         }
 
         var product = new ProductEntity()
@@ -54,6 +54,7 @@ public class CreateProductRequestHandler
             Width = request.Width,
             Length = request.Length,
             Volume = request.Height * request.Width * request.Length,
+            ImageObjectName = imageObjectName
         };
 
         await _productRepository.CreateProductAsync(product);
@@ -77,7 +78,7 @@ public class CreateProductRequestHandler
                                                 product.Width,
                                                 product.Length,
                                                 product.Volume,
-                                                imageUrl
+                                                imageObjectName
                                                 );
         return Result.Success(response);
     }
