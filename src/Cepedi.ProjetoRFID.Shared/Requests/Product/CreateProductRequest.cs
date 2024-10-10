@@ -22,5 +22,6 @@ public class CreateProductRequest : IRequest<Result<CreateProductResponse>>, IVa
     public decimal Height { get; set; } = 0;
     public decimal Width { get; set; } = 0;
     public decimal Length { get; set; } = 0;
+    public string? ImageBase64 { get; set; }
 
 }
