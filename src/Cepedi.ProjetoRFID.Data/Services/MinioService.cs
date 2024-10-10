@@ -34,7 +34,7 @@ namespace Cepedi.ProjetoRFID.Data.Services
 			{
 				var bucketName = await EnsureBucketExistsAsync("rfid-product-images");
 
-				var objectName = $"{Guid.NewGuid()}.jpg";
+				var objectName = $"{Guid.NewGuid()}";
 
 				var args = new PutObjectArgs()
 							.WithBucket(bucketName)
@@ -49,6 +49,18 @@ namespace Cepedi.ProjetoRFID.Data.Services
 			}
 
 			return imageUrl;
+		}
+
+		public async Task<string?> GetObjectUrlAsync(string bucketName, string objectName)
+		{
+			var args = new PresignedGetObjectArgs()
+				.WithBucket(bucketName)
+				.WithObject(objectName)
+				.WithExpiry(604800);
+
+			var url = await _minioclient.PresignedGetObjectAsync(args);
+
+			return url;
 		}
 	}
 }
