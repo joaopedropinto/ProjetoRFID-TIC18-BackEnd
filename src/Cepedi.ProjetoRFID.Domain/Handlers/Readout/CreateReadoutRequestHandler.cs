@@ -56,7 +56,7 @@ public class CreateReadoutRequestHandler
 
         var readout = new ReadoutEntity
         {
-            ReadoutDate = request.ReadoutDate,
+            ReadoutDate = DateTime.Now,
             Tags = validTagsIds
         };
 
