@@ -6,6 +6,8 @@ using Cepedi.ProjetoRFID.Shared.Enums;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using OperationResult;
+using Minio;
+using Cepedi.ProjetoRFID.Domain.Services;
 
 namespace Cepedi.ProjetoRFID.Domain.Handlers.Product;
 public class CreateProductRequestHandler
@@ -13,20 +15,25 @@ public class CreateProductRequestHandler
 {
     private readonly ILogger<CreateProductRequestHandler> _logger;
     private readonly IProductRepository _productRepository;
+    private readonly IMinioClient _minioClient;
+    private readonly IMinioService _minioService;
 
-    public CreateProductRequestHandler(IProductRepository productRepository, ILogger<CreateProductRequestHandler> logger)
-    {
-        _productRepository = productRepository;
-        _logger = logger;
-    }
+	public CreateProductRequestHandler(IProductRepository productRepository, ILogger<CreateProductRequestHandler> logger, IMinioClient minioClient, IMinioService minioService)
+	{
+		_productRepository = productRepository;
+		_logger = logger;
+		_minioClient = minioClient;
+		_minioService = minioService;
+	}
 
-    public async Task<Result<CreateProductResponse>> Handle(CreateProductRequest request, CancellationToken cancellationToken)
+	public async Task<Result<CreateProductResponse>> Handle(CreateProductRequest request, CancellationToken cancellationToken)
     {
-        // var product = await _productRepository.ReturnProductAsync(request.Id);
-        // if (product == null)
-        // {
-        //     //return Result.Error<CreateProductResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
-        // }
+        string? imageObjectName = null;
+
+        if (!string.IsNullOrEmpty(request.ImageBase64))
+        {
+            imageObjectName = await _minioService.UploadImageAsync(request.ImageBase64);
+        }
 
         var product = new ProductEntity()
         {
@@ -47,6 +54,7 @@ public class CreateProductRequestHandler
             Width = request.Width,
             Length = request.Length,
             Volume = request.Height * request.Width * request.Length,
+            ImageObjectName = imageObjectName
         };
 
         await _productRepository.CreateProductAsync(product);
@@ -69,7 +77,8 @@ public class CreateProductRequestHandler
                                                 product.Height,
                                                 product.Width,
                                                 product.Length,
-                                                product.Volume
+                                                product.Volume,
+                                                imageObjectName
                                                 );
         return Result.Success(response);
     }

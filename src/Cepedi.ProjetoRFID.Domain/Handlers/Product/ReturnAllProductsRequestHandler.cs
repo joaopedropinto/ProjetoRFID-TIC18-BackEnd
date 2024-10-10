@@ -50,7 +50,8 @@ public class ReturnAllProductsRequestHandler
                                                 product.Width,
                                                 product.Length,
                                                 product.Volume,
-                                                product.IsDeleted
+                                                product.IsDeleted,
+                                                product.ImageObjectName
                                                 ));
 
         }

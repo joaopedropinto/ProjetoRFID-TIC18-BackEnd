@@ -91,4 +91,11 @@ public class ProductController : BaseController
             return Ok(result.Value);
         }
     }
+
+    [HttpGet("image-url/{ObjectName}")]
+    [ProducesResponseType(typeof(GetProductImageUrlResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<GetProductImageUrlResponse>> GetProductImageUrlAsync(
+        [FromRoute] GetProductImageUrlRequest request)
+        => await SendCommand(request);
 }
