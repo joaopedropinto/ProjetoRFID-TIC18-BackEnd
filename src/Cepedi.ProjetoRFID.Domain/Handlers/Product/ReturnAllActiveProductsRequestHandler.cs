@@ -49,7 +49,8 @@ public class ReturnAllActiveProductsRequestHandler
                                                 product.Height,
                                                 product.Width,
                                                 product.Length,
-                                                product.Volume
+                                                product.Volume,
+                                                product.ImageObjectName
                                                 ));
 
         }

@@ -49,7 +49,8 @@ public class ReturnProductRequestHandler
                                                 product.Height,
                                                 product.Width,
                                                 product.Length,
-                                                product.Volume
+                                                product.Volume,
+                                                product.ImageObjectName
                                                 );
         return Result.Success(response);
     }
