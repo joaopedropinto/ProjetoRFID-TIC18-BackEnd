@@ -30,8 +30,10 @@ public class UpdateProductRequestHandler
         {
             //return Result.Error<UpdateCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
         }
+        string? imageObjectName = null;
 
-        var imageObjectName = await _minioService.UploadImageAsync(request.ImageBase64!);
+        if(request.ImageBase64 is not null)
+            imageObjectName = await _minioService.UploadImageAsync(request.ImageBase64!);
 
         product.Update(request.IdCategory,
                         request.IdSupplier,
