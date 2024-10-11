@@ -57,9 +57,5 @@ public class CreateProductRequestValidator : AbstractValidator<CreateProductRequ
         RuleFor(Product => Product.Price)
             .NotNull().WithMessage("O valor do produto deve ser informado")
             .GreaterThan(0).WithMessage("Valor do produto inválido.");
-
-        RuleFor(Product => Product.ImageBase64)
-            .NotEmpty()
-            .WithMessage("A imagem do produto é obrigatória");
     }
 }

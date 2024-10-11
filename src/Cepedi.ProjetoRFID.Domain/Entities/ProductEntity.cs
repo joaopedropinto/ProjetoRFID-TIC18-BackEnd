@@ -49,7 +49,8 @@ public class ProductEntity
         Width = width;
         Length = length;
         Volume = height * width * length;
-        ImageObjectName = imageObjectName;
+        if(imageObjectName is not null)
+            ImageObjectName = imageObjectName;
     }
 
     internal void Delete()
