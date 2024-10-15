@@ -32,7 +32,7 @@ public class UpdateProductRequestHandler
         }
         string? imageObjectName = null;
 
-        if(request.ImageBase64 is not null)
+        if(!string.IsNullOrEmpty(request.ImageBase64))
             imageObjectName = await _minioService.UploadImageAsync(request.ImageBase64!);
 
         product.Update(request.IdCategory,
