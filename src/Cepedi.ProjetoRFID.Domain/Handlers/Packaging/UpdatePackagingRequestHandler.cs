@@ -1,4 +1,5 @@
-﻿using Cepedi.ProjetoRFID.Domain.Repositories;
+﻿using System.Globalization;
+using Cepedi.ProjetoRFID.Domain.Repositories;
 using Cepedi.ProjetoRFID.Shared.Enums;
 using Cepedi.ProjetoRFID.Shared.Exceptions;
 using Cepedi.ProjetoRFID.Shared.Requests.Packaging;
@@ -29,7 +30,16 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
                 return Result.Error<UpdatePackagingResponse>(new ExceptionApplication(RegisteredErrors.IdPackagingInvalid));
             }
 
-            packaging.Update(request.Name);
+			var existingPackagingWithName = await _packagingRepository.ReturnActivePackagingByNameAsync(request.Name);
+
+            if(existingPackagingWithName is not null
+                && existingPackagingWithName.Id != request.Id)
+            {
+				return Result.Error<UpdatePackagingResponse>(new ExceptionApplication(RegisteredErrors.PackageNameAlreadyExists));
+            }
+
+
+			packaging.Update(request.Name);
 
             await _packagingRepository.UpdatePackagingAsync(packaging);
 
