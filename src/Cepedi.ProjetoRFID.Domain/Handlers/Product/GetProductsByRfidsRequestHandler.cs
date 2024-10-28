@@ -63,7 +63,9 @@ public class GetProductsByRfidsRequestHandler : IRequestHandler<GetProductsByRfi
                 p.Height,
                 p.Width,
                 p.Length,
-                p.Volume
+                p.Volume,
+                p.ImageObjectName,
+                p.IsDeleted
                 )));
         }
 

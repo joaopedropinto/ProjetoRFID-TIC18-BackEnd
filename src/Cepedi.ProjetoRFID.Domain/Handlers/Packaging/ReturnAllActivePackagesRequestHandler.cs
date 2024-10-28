@@ -33,7 +33,7 @@ namespace Cepedi.ProjetoRFID.Domain.Handlers.Packaging
 
             foreach(var packagingItem in packaging)
             {
-                response.Add(new ReturnPackagingResponse(packagingItem.Id, packagingItem.Name, packagingItem.IsActive));
+                response.Add(new ReturnPackagingResponse(packagingItem.Id, packagingItem.Name, packagingItem.IsDeleted));
             }
 
             return Result.Success(response);

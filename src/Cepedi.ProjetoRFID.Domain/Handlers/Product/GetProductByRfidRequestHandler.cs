@@ -47,7 +47,9 @@ public class GetProductByRfidRequestHandler : IRequestHandler<GetProductByRfidRe
                                                     product.Height,
                                                     product.Width,
                                                     product.Length,
-                                                    product.Volume
+                                                    product.Volume,
+                                                    product.IsDeleted,
+                                                    product.ImageObjectName
                                                     );
         return Result.Success(response);
     }

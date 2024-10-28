@@ -132,4 +132,10 @@ public class RegisteredErrors
         ErrorDescription = "A lista de embalagens retornada está vazia",
         Tipo = TypeError.Alert
     };
+    public static ErrorResult PackageNameAlreadyExists = new()
+    {
+        ErrorTitle = "Nome inválido",
+        ErrorDescription = "Já existe uma embalagem com esse nome",
+        Tipo = TypeError.Alert
+    };
 }

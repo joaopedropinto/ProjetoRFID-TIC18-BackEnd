@@ -6,6 +6,7 @@ using Cepedi.ProjetoRFID.Shared.Enums;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using OperationResult;
+using Cepedi.ProjetoRFID.Domain.Services;
 
 namespace Cepedi.ProjetoRFID.Domain.Handlers.Product;
 public class UpdateProductRequestHandler
@@ -13,21 +14,26 @@ public class UpdateProductRequestHandler
 {
     private readonly ILogger<UpdateProductRequestHandler> _logger;
     private readonly IProductRepository _productRepository;
+    private readonly IMinioService _minioService;
 
-    public UpdateProductRequestHandler(IProductRepository productRepository, ILogger<UpdateProductRequestHandler> logger)
-    {
-        _productRepository = productRepository;
-        _logger = logger;
-    }
+	public UpdateProductRequestHandler(IProductRepository productRepository, ILogger<UpdateProductRequestHandler> logger, IMinioService minioService)
+	{
+		_productRepository = productRepository;
+		_logger = logger;
+		_minioService = minioService;
+	}
 
-    public async Task<Result<UpdateProductResponse>> Handle(UpdateProductRequest request, CancellationToken cancellationToken)
+	public async Task<Result<UpdateProductResponse>> Handle(UpdateProductRequest request, CancellationToken cancellationToken)
     {
         var product = await _productRepository.ReturnProductAsync(request.Id);
         if (product == null)
         {
             //return Result.Error<UpdateCategoryResponse>(new Shared.Exececoes.ExcecaoAplicacao(CadastroErros.IdPessoaInvalido));
         }
+        string? imageObjectName = null;
 
+        if(!string.IsNullOrEmpty(request.ImageBase64))
+            imageObjectName = await _minioService.UploadImageAsync(request.ImageBase64!);
 
         product.Update(request.IdCategory,
                         request.IdSupplier,
@@ -44,8 +50,8 @@ public class UpdateProductRequestHandler
                         request.IdReadout,
                         request.Height,
                         request.Width,
-                        request.Length);
-
+                        request.Length,
+                        imageObjectName);
 
         await _productRepository.UpdateProductAsync(product);
 
@@ -67,7 +73,8 @@ public class UpdateProductRequestHandler
             product.IdReadout,
             product.Height,
             product.Width,
-            product.Length
+            product.Length,
+            product.ImageObjectName
         );
         return Result.Success(response);
     }

@@ -19,8 +19,10 @@ public record class GetProductsByRfidsResponse
     public decimal Width { get; init; }
     public decimal Length { get; init; }
     public decimal Volume { get; init; }
+    public string ImageObjectName { get; set; }
+    public bool IsDeleted { get; set; } = false;
 
-    public GetProductsByRfidsResponse(Guid id, string name, string rfidTag, string description, decimal weight, DateTime? manufacDate, DateTime? dueDate, string unitMeasurement, string batchNumber, int quantity, decimal price, Guid idReadout, Guid idCategory, Guid idSupplier, Guid idPackaging, decimal height, decimal width, decimal length, decimal volume)
+    public GetProductsByRfidsResponse(Guid id, string name, string rfidTag, string description, decimal weight, DateTime? manufacDate, DateTime? dueDate, string unitMeasurement, string batchNumber, int quantity, decimal price, Guid idReadout, Guid idCategory, Guid idSupplier, Guid idPackaging, decimal height, decimal width, decimal length, decimal volume, string imageObjectName, bool isDeleted)
     {
         Id = id;
         Name = name;
@@ -41,5 +43,7 @@ public record class GetProductsByRfidsResponse
         Width = width;
         Length = length;
         Volume = volume;
+        ImageObjectName = imageObjectName;
+        IsDeleted = isDeleted;
     }
 }
