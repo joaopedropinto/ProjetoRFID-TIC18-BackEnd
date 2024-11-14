@@ -138,4 +138,10 @@ public class RegisteredErrors
         ErrorDescription = "Já existe uma embalagem com esse nome",
         Tipo = TypeError.Alert
     };
+    public static ErrorResult InvalidReadingTime = new()
+    {
+        ErrorTitle = "Tempo de leitura inválido",
+        ErrorDescription = "O tempo de leitura em milissegundos precisa ser um número inteiro e maior que 1000",
+        Tipo = TypeError.Alert
+    };
 }

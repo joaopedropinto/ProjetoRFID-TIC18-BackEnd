@@ -1,5 +1,6 @@
 using System.Text.Json;
 using Cepedi.ProjetoRFID.Domain.Repositories;
+using Cepedi.ProjetoRFID.Shared.Enums;
 using Cepedi.ProjetoRFID.Shared.Requests.Product;
 using Cepedi.ProjetoRFID.Shared.Responses.Product;
 using MediatR;
@@ -18,6 +19,11 @@ public class GetProductsByRfidsByTimeRequestHandler : IRequestHandler<GetProduct
 
     public async Task<Result<CombinedProductResponse>> Handle(GetProductsByRfidsByTimeRequest request, CancellationToken cancellationToken)
     {
+        if(request.ReadingTime < 1000)
+        {
+            return Result.Error<CombinedProductResponse>(new Shared.Exceptions.ExceptionApplication(RegisteredErrors.InvalidReadingTime));
+        }
+
         var rfids = await GetRfidsFromApiAsync(request.ReadingTime);
 
         var products = await _productRepository.GetProductsByRfidsAsync(rfids);
