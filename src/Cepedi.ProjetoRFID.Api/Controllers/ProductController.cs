@@ -74,7 +74,15 @@ public class ProductController : BaseController
         }
     }
 
-    [HttpGet("get-product-by-rfid")]
+    [HttpGet("get-products-by-rfids-by-time")]
+    [ProducesResponseType(typeof(CombinedProductResponse), StatusCodes.Status200OK)]
+	[ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<CombinedProductResponse>> GetProductsByRfidsPerTimerAsync([FromQuery] GetProductsByRfidsByTimeRequest request)
+    {
+        return await SendCommand(request);
+    }
+
+	[HttpGet("get-product-by-rfid")]
     [ProducesResponseType(typeof(GetProductByRfidResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ErrorResult), StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<GetProductByRfidResponse>> GetProductByRfidAsync(
