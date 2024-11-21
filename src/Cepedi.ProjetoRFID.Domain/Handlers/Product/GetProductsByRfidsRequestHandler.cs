@@ -24,7 +24,7 @@ public class GetProductsByRfidsRequestHandler : IRequestHandler<GetProductsByRfi
     {
         using (var httpClient = new HttpClient())
         {
-            var response = await httpClient.GetAsync("http://localhost:5106/api/PortalRFID/api/GetTagsRfid?antNum=1&ipPorta=172.16.10.50:8081&tempoLeitura=10000&readUser=false&potenciaPadrao=3000");
+            var response = await httpClient.GetAsync("http://localhost:5106/api/PortalRFID/api/GetTagsRfid?antNum=1&ipPorta=172.16.10.50:8081&tempoLeitura=1000&readUser=false&potenciaPadrao=3000");
             response.EnsureSuccessStatusCode();
             var jsonContent = await response.Content.ReadAsStringAsync();
             var readings = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(jsonContent);
